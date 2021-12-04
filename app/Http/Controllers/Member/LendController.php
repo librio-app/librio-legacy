@@ -8,6 +8,7 @@ use App\Http\Requests\Member\Lend as Request;
 use App\Http\Requests\Request as DefaultRequest;
 use App\Models\Catalog\Barcode;
 use App\Service\ReservationService;
+use Carbon\Carbon;
 
 class LendController extends Controller
 {
@@ -63,7 +64,22 @@ class LendController extends Controller
             return $carry + ($item['penalty'] + $item['costs']);
         }, 0.0);
 
-        return view('member.lend.lend', compact('member', 'subscription', 'lended', 'notAvailableReservations', 'reservations', 'costs'));
+        $subscriptionIsEnding = false;
+        $withinMonth = Carbon::now();
+        if ($subscription !== null && $subscription->pivot->expire_date !== null
+            && Carbon::createFromFormat('Y-m-d H:i:s', $subscription->pivot->expire_date)->subDays(30) < $withinMonth) {
+            $subscriptionIsEnding = true;
+        }
+
+        return view('member.lend.lend', compact(
+            'member',
+            'subscription',
+            'lended',
+            'notAvailableReservations',
+            'reservations',
+            'costs',
+            'subscriptionIsEnding'
+        ));
     }
 
     /**
