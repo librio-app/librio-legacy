@@ -45,10 +45,8 @@
                     <tr>
                         <th class="col-md-2">{{ trans('general.title.default') }}</th>
                         <th class="col-md-1">@sortablelink('series_nr', trans_choice('general.series_nr', 1))</th>
-                        <th class="col-md-1">{{ trans('general.code') }}</th>
                         <th class="col-md-2">{{ trans_choice('general.authors', 1) }}</th>
-                        <th class="col-md-1 hidden-xs">{{ trans_choice('general.statuses', 1) }}</th>
-                        <th class="col-md-1 text-center">{{ trans('general.actions') }}</th>
+                        <th class="col-md-1 text-right">{{ trans('general.actions') }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -60,16 +58,8 @@
                                 </a>
                             </td>
                             <td>{{ $item->series_nr ?? '-' }}</td>
-                            <td>{{ $item->code }}</td>
                             <td>{{ $item->author->getName() }}</td>
-                            <td>
-                                @if ($item->enabled)
-                                    <span class="label label-success">{{ trans('general.enabled') }}</span>
-                                @else
-                                    <span class="label label-danger">{{ trans('general.disabled') }}</span>
-                                @endif
-                            </td>
-                            <td class="text-center">
+                            <td class="text-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" data-toggle-position="left" aria-expanded="false">
                                         <i class="fa fa-ellipsis-h"></i>

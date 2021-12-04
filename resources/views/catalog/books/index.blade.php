@@ -64,7 +64,7 @@
                                     {{ $item->title }}
                                 </a>
                             </td>
-                            <td>{{ ($item->barcodes->count() > 0) ? $item->barcodes->first() . (($item->barcodes->count() > 1) ? ', ' . '+' . ($item->barcodes->count() - 1) : '') : '-' }}</td>
+                            <td class="barcode">{{ ($item->barcodes->count() > 0) ? $item->barcodes->first() . (($item->barcodes->count() > 1) ? ', ' . '+' . ($item->barcodes->count() - 1) : '') : '-' }}</td>
                             <td>{{ isset($item->series) ? $item->series->title . (isset($item->series_nr) ? ' #' . $item->series_nr : '') : '-' }}</td>
                             <td>{{ $item->category->name }}</td>
                             <td>{{ $item->author->getName() }}</td>
