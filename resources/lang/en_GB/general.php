@@ -192,4 +192,6 @@ return [
     'salutation'            => 'Salutation',
     'opac'                  => 'OPAC',
     'export'                => 'Export|Export',
+    'subscription_warning'  => 'Subscription is expiring',
+    "subscription_expiring" => 'This subscription is expiring in one month!'
 ];

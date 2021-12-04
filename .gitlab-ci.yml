@@ -7,9 +7,6 @@ cache:
 #  - node_modules
   - public/
 
-before_script:
-  - curl -sS https://getcomposer.org/installer | php --version=1.10.22
-
 stages:
   - Build
   - Deploy

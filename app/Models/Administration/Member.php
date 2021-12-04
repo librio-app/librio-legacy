@@ -88,6 +88,7 @@ class Member extends Authenticatable
         $subscriptions = $this->belongsToMany(Subscription::class, 'member_subscription', 'member_id', 'subscription_id')
             ->whereRaw("({$prefix}member_subscription.expire_date IS NULL OR {$prefix}member_subscription.expire_date >= '{$now->format('Y-m-d h:m:s')}')")
             ->orderByDesc('pivot_created_at')
+            ->withPivot('expire_date')
             ->withTimestamps()
             ->get();
 

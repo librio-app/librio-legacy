@@ -192,4 +192,6 @@ return [
     'salutation'            => 'Aanhef',
     'opac'                  => 'OPAC',
     'export'                => 'Export|Exporteren',
+    'subscription_warning'  => 'Abonnement loopt af',
+    "subscription_expiring" => 'Abonnement looop af binnen 1 maand!'
 ];
