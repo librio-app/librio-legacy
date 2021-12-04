@@ -44,7 +44,15 @@
                     </thead>
                     <tbody>
                     @foreach($history as $item)
-                        @php $book = $item->barcode->book @endphp
+                        @php
+                            // TODO create better check somewhere else
+                            // when deleted barcode we got an error, that's why this check is here
+                            if (!isset($item->barcode)) {
+                                continue;
+                            }
+
+                            $book = $item->barcode->book
+                        @endphp
                         <tr>
                             <td>
                                 <a href="{{ url('catalog/books/' . $book->id . '/details') }}">
