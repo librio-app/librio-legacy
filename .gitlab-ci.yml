@@ -1,0 +1,70 @@
+image: edbizarro/gitlab-ci-pipeline-php:7.4
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+  - vendor/
+#  - node_modules
+  - public/
+
+before_script:
+  - curl -sS https://getcomposer.org/installer | php --version=1.10.22
+
+stages:
+  - Build
+  - Deploy
+
+build:
+   stage: Build
+   script:
+      - php composer.phar install --optimize-autoloader
+#      - npm install
+#      - npm run prod
+
+deploy:
+  only: [release/librio.michielkalle.nl]
+  stage: Deploy
+  environment:
+    name: preview
+    url: http://librio.michielkalle.nl
+  script:
+      # prepare SSH
+      - mkdir -p "${HOME}/.ssh"
+      - chmod 700 "${HOME}/.ssh"
+      - echo "${SSH_PRIVATE_KEY}" > id_rsa
+      - chmod 700 id_rsa
+      - echo "${SSH_HOST_KEY}" > "${HOME}/.ssh/known_hosts"
+
+      # rsync
+      - /usr/bin/rsync -rKzl --verbose --delete-after --ignore-errors --force --exclude-from="rsync-exclude.txt" -e 'ssh -i id_rsa' . "${SSH_DEPLOY_USER}@${SSH_DEPLOY_HOST}:${SSH_DEPLOY_PATH}" 2>&1
+
+      # migrate and seed
+      - ssh -i id_rsa ${SSH_DEPLOY_USER}@${SSH_DEPLOY_HOST} "docker-compose -f ${SSH_DEPLOY_PATH}/docker-compose.yml exec -T web php artisan migrate --force"
+      - ssh -i id_rsa ${SSH_DEPLOY_USER}@${SSH_DEPLOY_HOST} "docker-compose -f ${SSH_DEPLOY_PATH}/docker-compose.yml exec -T web php artisan db:seed --force"
+
+      # optimize
+      - ssh -i id_rsa ${SSH_DEPLOY_USER}@${SSH_DEPLOY_HOST} "docker-compose -f ${SSH_DEPLOY_PATH}/docker-compose.yml exec -T web php artisan optimize:clear"
+
+deploy_production:
+  only: [release/mijn.bibliotheek-dirksland.nl]
+  stage: Deploy
+  environment:
+    name: production
+    url: https://mijn.bibliotheek-dirksland.nl
+  script:
+    # prepare SSH
+    - mkdir -p "${HOME}/.ssh"
+    - chmod 700 "${HOME}/.ssh"
+    - echo "${SSH_PRIVATE_KEY}" > id_rsa
+    - chmod 700 id_rsa
+    - echo "${SSH_HOST_KEY}" > "${HOME}/.ssh/known_hosts"
+
+    # rsync
+    - /usr/bin/rsync -rKzl --verbose --delete-after --ignore-errors --force --exclude-from="rsync-exclude.txt" -e 'ssh -i id_rsa' . "${SSH_DEPLOY_USER}@${SSH_DEPLOY_HOST}:${SSH_DEPLOY_PATH}" 2>&1
+
+    # migrate and seed
+    - ssh -i id_rsa ${SSH_DEPLOY_USER}@${SSH_DEPLOY_HOST} "cd ${SSH_DEPLOY_PATH} && php artisan migrate --force"
+    - ssh -i id_rsa ${SSH_DEPLOY_USER}@${SSH_DEPLOY_HOST} "cd ${SSH_DEPLOY_PATH} && php artisan db:seed --force"
+
+    # optimize
+    - ssh -i id_rsa ${SSH_DEPLOY_USER}@${SSH_DEPLOY_HOST} "cd ${SSH_DEPLOY_PATH} && php artisan optimize:clear"

@@ -1,0 +1,23 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5
+    restart: always
+    ports:
+      - 8086:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: librio_root_password
+      MYSQL_DATABASE: librio_db
+      MYSQL_USER: librio_admin
+      MYSQL_PASSWORD: librio_password
+  web:
+    image: librio
+    restart: always
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - 8085:80
+    environment:
+      APP_DEBUG: "true"
+    links:
+      - mysql

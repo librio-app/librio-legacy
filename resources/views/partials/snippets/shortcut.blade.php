@@ -1,0 +1,1 @@
+<p><i>{{ trans_choice('general.shortcut', 2) }}: {{ setting('short_cut_take_in') }} = {{ strtolower(trans_choice('general.take-in', 2)) }}, {{ setting('short_cut_lend') }} = {{ strtolower(trans_choice('general.lend', 2)) }}, {{ setting('short_cut_pay') }} = {{ strtolower(trans('general.pay')) }}</i></p>

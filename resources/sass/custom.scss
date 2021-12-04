@@ -1,0 +1,217 @@
+.login-page {
+    background: url('../../public/images/login.jpg') no-repeat center center fixed;
+    height: 100%;
+    width: 100%;
+    padding: 5% 0;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+
+    img {
+        width: 70px;
+    }
+}
+
+.barcode {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.pagination {
+    margin: 0;
+}
+
+.content-center {
+    margin: 0 auto;
+    max-width: 1300px;
+}
+
+.new-button {
+    margin-left: 20px;
+}
+
+.delete-link {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #777;
+    white-space: nowrap;
+    width: 100%;
+    text-align: left;
+    background-color: transparent !important;
+    border: none;
+    cursor: pointer;
+}
+
+.input-filter {
+    display: inline;
+    width: inherit;
+}
+
+.title-filter {
+    margin-right: 10px;
+}
+
+.btn-filter {
+    margin-bottom: 1px;
+    vertical-align: top;
+}
+
+.table.table-responsive tbody tr td {
+    vertical-align: middle;
+}
+
+.table-responsive {
+    overflow-x: visible;
+}
+
+div.required .control-label:not(span):after, td.required:after {
+    content: ' *';
+    color: #F00;
+    font-weight: bold;
+}
+
+.input-group .btn-group.radio-inline {
+    padding-left: inherit;
+}
+
+.form-group .select2-container .select2-selection--single {
+    height: 34px;
+    border: 1px solid #d2d6de;
+}
+
+.form-group .select2-container--default .select2-selection--single {
+    border-radius: 0;
+}
+
+input[type="radio"]:checked {
+    display: none;
+}
+
+td > .show {
+    display: inline-block !important;
+}
+
+.box-filter {
+    margin-left: 5px;
+}
+
+.box-filter .select2.select2-container.select2-container--default {
+    width: 160px !important;
+    margin-top: -2px;
+}
+
+.box-filter .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    margin-top: 3px;
+}
+
+.box-filter .select2.select2-container .select2-selection__choice {
+    font-size: 13px !important;
+    margin-top: 4px;
+    margin-bottom: -1px !important;
+}
+
+.box-filter .select2-container .select2-selection--multiple {
+    min-height: 30px !important;
+}
+
+.box-filter .select2-search__field {
+    font-size: 12px !important;
+}
+
+#items .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #f4f4f4;
+    color: #444;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+}
+
+#items .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color: #444;
+}
+
+#items span.select2.select2-container.select2-container--default .select2-selection.select2-selection--multiple {
+    border-color: #d2d6de;
+    border-radius: 0;
+}
+
+#items .select2-container--default.select2-container--focus .select2-selection--multiple {
+    border-color: #444;
+    border-radius: 0;
+}
+
+.select2-selection--multiple {
+    border: 1px solid #d2d6de !important;
+    border-radius: 0 !important;
+}
+
+.box.box-primary {
+    border-top-color: #0e6f84;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    color: #333;
+}
+
+.products-list .product-img img {
+    width: 60px;
+    height: 70px;
+}
+
+.products-list .product-info {
+    margin-left: 75px;
+}
+
+.products-list .product-description {
+    white-space: normal;
+    color: #626262;
+}
+
+@media (min-width: 480px) {
+    .product-barcodes {
+        margin-top: -1rem
+    }
+}
+
+.navbar-custom-menu-left {
+    float: left;
+}
+
+.navbar .nav > li > p {
+    color: #fff;
+}
+
+.nav > li > p {
+    padding: 15px 10px;
+}
+
+.nav > li, .nav > li > p {
+    position: relative;
+    margin: 0;
+    display: block;
+}
+
+.content-subheader {
+    position: relative;
+}
+
+.content-subheader > h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.content-subheader > .breadcrumb {
+    float: right;
+    background: transparent;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 12px;
+    padding: 0;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    border-radius: 2px;
+}

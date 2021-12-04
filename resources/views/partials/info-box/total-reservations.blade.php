@@ -1,0 +1,1 @@
+<span id="total-reservations" class="info-box-number">{{ isset($notAvailableReservations) ? count($reservations) - count($notAvailableReservations) : '-'  }} / {{ count($reservations) }} {{ strtolower(trans('general.available')) }}</span>
