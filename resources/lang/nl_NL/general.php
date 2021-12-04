@@ -193,5 +193,5 @@ return [
     'opac'                  => 'OPAC',
     'export'                => 'Export|Exporteren',
     'subscription_warning'  => 'Abonnement loopt af',
-    "subscription_expiring" => 'Abonnement looop af binnen 1 maand!'
+    "subscription_expiring" => 'Abonnement loopt binnen één maand af!'
 ];
