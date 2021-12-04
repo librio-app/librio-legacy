@@ -14,6 +14,18 @@
         </div>
     </div>
 
+    @if($subscriptionIsEnding)
+        <div class="row" id="reservation-alert">
+            <div class="col-md-12">
+                <div class="alert alert-warning alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-warning"></i>{{ trans('general.subscription_warning') }}</h4>
+                    {{ trans('general.subscription_expiring') }}
+                </div>
+            </div>
+        </div>
+    @endif
+
     @if(count($reservations) - count($notAvailableReservations) > 0)
         <div class="row" id="reservation-alert">
             <div class="col-md-12">
@@ -164,7 +176,7 @@
         </div>
     </div>
 
-    <h3>{{ trans_choice('general.reservations', 1) }}</h3>
+    <h3>{{ trans_choice('general.reservations', 2) }}</h3>
 
     <div class="row">
         <div class="col-md-6">
