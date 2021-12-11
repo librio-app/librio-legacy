@@ -2,6 +2,7 @@
 
 namespace App\Models\Catalog;
 
+use App\Models\Downloadable;
 use App\Models\Model;
 use EloquentFilter\Filterable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,7 +11,7 @@ use Kyslik\ColumnSortable\Sortable;
 
 class Theme extends Model
 {
-    use Notifiable, SoftDeletes, Filterable, Sortable;
+    use Notifiable, SoftDeletes, Filterable, Sortable, Downloadable;
 
     protected $table = 'themes';
 

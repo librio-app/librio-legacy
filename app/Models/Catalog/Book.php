@@ -6,6 +6,7 @@ use App\Models\Downloadable;
 use App\Models\Model;
 use App\Service\BarcodeInterface;
 use EloquentFilter\Filterable;
+use EloquentFilter\ModelFilter;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Kyslik\ColumnSortable\Sortable;
@@ -91,5 +92,29 @@ class Book extends Model implements BarcodeInterface
     public function barcodes()
     {
         return $this->hasMany(Barcode::class, 'book_id');
+    }
+
+    /**
+     * Define the filter specific for books and themes
+     *
+     * @return ModelFilter
+     */
+    public function modelFilter()
+    {
+        $route = \Route::current();
+        list($folder, $file) = explode('/', $route->uri());
+
+        if (empty($folder) || empty($file)) {
+            return $this->provideFilter();
+        }
+
+        // custom filtering for detail
+        if ($folder === 'catalog' && $file === 'themes' && $route->action['as'] === 'themes.edit') {
+            $file = 'theme';
+        }
+
+        $class = '\App\Filters\\' . ucfirst($folder) . '\\' . ucfirst($file);
+
+        return $this->provideFilter($class);
     }
 }

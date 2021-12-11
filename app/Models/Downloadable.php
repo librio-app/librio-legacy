@@ -29,7 +29,7 @@ trait Downloadable
         $filtered->orderBy($query->getModel()->getTable() . '.id', 'DESC');
 
         // Create the model filter instance
-        $exportClass = new $export($filtered);
+        $exportClass = new $export($filtered, $request);
 
         return ($exportClass)->download($this->getTable() . '.xlsx');
     }
