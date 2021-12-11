@@ -42,7 +42,7 @@
 
     <h3>{{ trans_choice('general.books', 2) }}</h3>
 
-    @include('catalog.themes.books', ['books' => $books])
+    @include('catalog.themes.books', ['books' => $books, 'theme' => $theme])
 @endsection
 
 @push('scripts')

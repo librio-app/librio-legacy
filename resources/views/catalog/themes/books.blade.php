@@ -1,4 +1,19 @@
 <div class="box box-primary">
+    <div class="box-header with-border">
+        {!! Form::open(['url' => 'catalog/themes/' . $theme->id . '/edit', 'role' => 'form', 'method' => 'GET']) !!}
+        <div id="items" class="pull-left box-filter">
+            <span class="title-filter hidden-xs">{{ trans('general.search') }}:</span>
+            {!! Form::text('search', request('search'), ['class' => 'form-control input-filter input-sm', 'placeholder' => trans('general.search_placeholder')]) !!}
+        </div>
+
+        <div class="pull-right">
+            @permission('read-administration-export')
+                {!! Form::button('<span class="fa fa-download"></span>', ['id' => 'download-theme-books', 'type' => 'button', 'class' => 'btn btn-sm btn-danger btn-filter button-submit']) !!}
+            @endpermission
+        </div>
+        {!! Form::close() !!}
+    </div>
+
     <div class="box-body">
         <div class="table table-responsive">
             <table class="table table-striped table-hover" id="tbl-books">
@@ -51,3 +66,12 @@
         @include('partials.default.pagination', ['items' => $books, 'type' => 'books'])
     </div>
 </div>
+
+
+@push('scripts')
+    <script type="text/javascript">
+        $('#download-theme-books').click(function() {
+            window.open('<?php echo route('themes.download', array_merge(request()->query(), ['theme' => $theme])) ?>','_blank');
+        });
+    </script>
+@endpush

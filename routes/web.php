@@ -79,6 +79,7 @@ Route::group(['middleware' => 'language'], function () {
                 Route::delete('themes/{theme}/remove/book/{book}', 'Catalog\ThemesController@removeBook');
                 Route::get('themes/{theme}/enable', 'Catalog\ThemesController@enable')->name('themes.enable');
                 Route::get('themes/{theme}/disable', 'Catalog\ThemesController@disable')->name('themes.disable');
+                Route::get('themes/{theme}/download', 'Catalog\ThemesController@download')->name('themes.download');
 
                 Route::resource('types', 'Catalog\TypesController');
             });

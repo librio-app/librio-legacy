@@ -103,6 +103,11 @@ class ThemesController extends Controller
         return redirect()->route('themes.index');
     }
 
+    public function download()
+    {
+        return Theme::download();
+    }
+
     /**
      * @param Theme $theme
      * @return \Illuminate\View\View
