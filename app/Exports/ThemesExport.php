@@ -54,7 +54,6 @@ class ThemesExport implements FromQuery, WithHeadings
           ->join('authors', 'authors.id', '=', 'books.author_id')
           ->join('book_barcodes', 'book_barcodes.book_id', '=', 'books.id')
           ->leftJoin('series', 'series.id', '=', 'books.series_id')
-          ->groupBy(['book_barcodes.id'])
           ->toBase();
 
         $route = \Route::current();
