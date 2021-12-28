@@ -114,6 +114,8 @@ class BarcodesController extends Controller
     {
         $book = $barcode->book;
         if ($barcode->allowedToDelete()) {
+            $barcode->status = 'deleted';
+            $barcode->save();
             $barcode->delete();
         } else {
             $message = trans('messages.failed.coupled', ['type' => trans_choice('general.barcodes', 1)]);
