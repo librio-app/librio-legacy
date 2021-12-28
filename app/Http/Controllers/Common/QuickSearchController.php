@@ -25,10 +25,10 @@ class QuickSearchController extends Controller
             ->join('authors', 'authors.id', '=', 'books.author_id')
             ->where(function ($query) use ($search) {
                 $trimmedSearch = preg_replace('/\s+/', '', $search);
-                $query->where('books.title', 'LIKE', '%' . $trimmedSearch . '%')
-                    ->orWhere('books.description', 'LIKE', '%' . $trimmedSearch . '%')
+                $query->where('books.title', 'LIKE', '%' . $search . '%')
+                    ->orWhere('books.description', 'LIKE', '%' . $search . '%')
                     ->orWhere('book_barcodes.barcode', 'LIKE', '%' . $trimmedSearch . '%')
-                    ->orWhere('authors.last_name', 'LIKE', '%' . $trimmedSearch . '%');
+                    ->orWhere('authors.last_name', 'LIKE', '%' . $search . '%');
             })
             ->whereNull('book_barcodes.deleted_at')
             ->groupBy(['books.id'])
