@@ -1,16 +1,17 @@
 FROM php:7.4-apache
 
-RUN apt-get update && apt-get install -y zip libzip-dev libpng-dev zlib1g-dev libicu-dev g++ \
+RUN apt-get update && apt-get install -y zip libzip-dev libpng-dev zlib1g-dev libicu-dev g++ git \
     && docker-php-ext-configure intl \
     && docker-php-ext-install pdo_mysql gd zip intl \
     && rm -rf /var/lib/apt/lists/*
 
 # Composer installation.
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY --from=composer:1 /usr/bin/composer /usr/bin/composer
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
-RUN composer clear-cache
+RUN composer global require hirak/prestissimo --prefer-dist --no-progress --no-suggest --classmap-authoritative \
+	&& composer clear-cache
 ENV PATH="${PATH}:/root/.composer/vendor/bin"
 
 COPY . /var/www/html/
