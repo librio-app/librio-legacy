@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Chart\Lended as Request;
-use Chartisan\PHP\Chartisan;
 
 class ChartController extends Controller
 {
@@ -32,11 +31,19 @@ class ChartController extends Controller
             }
         }
 
-        $chart = Chartisan::build()
-            ->labels($labels)
-            ->dataset(trans('general.total'), $dataset);
-
-        return $chart->toJSON();
+        return response()->json([
+            'chart' => [
+                'extra' => null,
+                'labels' => $labels,
+            ],
+            'datasets' => [
+                [
+                    'extra' => null,
+                    'name' => trans('general.total'),
+                    'values' => $dataset
+                ]
+            ]
+        ]);
     }
 
     public function month(Request $request)
@@ -73,10 +80,18 @@ class ChartController extends Controller
             }
         }
 
-        $chart = Chartisan::build()
-            ->labels($labels)
-            ->dataset(trans('general.total'), $dataset);
-
-        return $chart->toJSON();
+        return response()->json([
+            'chart' => [
+                'extra' => null,
+                'labels' => $labels,
+            ],
+            'datasets' => [
+                [
+                    'extra' => null,
+                    'name' => trans('general.total'),
+                    'values' => $dataset
+                ]
+            ]
+        ]);
     }
 }

@@ -105,8 +105,14 @@ class MembersController extends Controller
      */
     public function update(SubscriptionService $subscriptionService, Member $member, Request $request)
     {
-        // Update member
         $data = $request->input();
+        $subscription = $member->subscriptions()->first();
+        // when disabled and subscription changes, enable
+        if ($subscription instanceof Subscription && $subscription->id !== ((int) $data['subscription_id'])) {
+            $data['enabled'] = true;
+        }
+
+        // update member
         $member->update($data);
 
         if ((bool) $data['enabled'] === false) {
