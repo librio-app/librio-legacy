@@ -2,13 +2,14 @@
 
 namespace App\Exceptions;
 
-use Exception;
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Throwable;
+use Illuminate\Foundation\Exceptions\Handler as ThrowableHandler;
+use Illuminate\Support\Facades\Auth;
 
-class Handler extends ExceptionHandler
+class Handler extends ThrowableHandler
 {
     /**
-     * A list of the exception types that are not reported.
+     * A list of the Throwable types that are not reported.
      *
      * @var array
      */
@@ -17,7 +18,7 @@ class Handler extends ExceptionHandler
     ];
 
     /**
-     * A list of the inputs that are never flashed for validation exceptions.
+     * A list of the inputs that are never flashed for validation Throwables.
      *
      * @var array
      */
@@ -27,25 +28,29 @@ class Handler extends ExceptionHandler
     ];
 
     /**
-     * Report or log an exception.
+     * Report or log an Throwable.
      *
-     * @param  \Exception  $exception
+     * @param  \Throwable  $exception
      * @return void
      */
-    public function report(Exception $exception)
+    public function report(Throwable $exception)
     {
         parent::report($exception);
     }
 
     /**
-     * Render an exception into an HTTP response.
+     * Render an Throwable into an HTTP response.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
-     * @return \Illuminate\Http\Response
+     * @param  \Throwable  $exception
+     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function render($request, Exception $exception)
+    public function render($request, Throwable $exception)
     {
+        if (!Auth::check() && $this->isHttpException($exception)) {
+            return redirect()->route('login');
+        }
+
         return parent::render($request, $exception);
     }
 }

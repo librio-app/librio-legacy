@@ -19,7 +19,7 @@ Route::group(['middleware' => 'language'], function () {
 
         // logout
         Route::group(['prefix' => 'admin/auth'], function () {
-            Route::get('logout', 'Auth\Admin\LoginController@destroy')->name('logout');
+            Route::get('logout', 'Auth\Admin\LoginController@destroy')->name('admin.logout');
         });
 
         // admin|manager permissions
@@ -154,13 +154,13 @@ Route::group(['middleware' => 'language'], function () {
     // guest web
     Route::group(['middleware' => 'guest:web'], function () {
         Route::group(['prefix' => 'admin/auth'], function () {
-            Route::get('login', 'Auth\Admin\LoginController@show')->name('login');
+            Route::get('login', 'Auth\Admin\LoginController@show')->name('admin.login');
             Route::post('login', 'Auth\Admin\LoginController@store');
 
-            Route::get('forgot', 'Auth\Admin\ForgotPasswordController@show')->name('forgot');
+            Route::get('forgot', 'Auth\Admin\ForgotPasswordController@show')->name('admin.forgot');
             Route::post('forgot', 'Auth\Admin\ForgotPasswordController@store');
 
-            Route::get('reset/{token}', 'Auth\Admin\ResetPasswordController@show')->name('reset');
+            Route::get('reset/{token}', 'Auth\Admin\ResetPasswordController@show')->name('admin.reset');
             Route::post('reset', 'Auth\Admin\ResetPasswordController@store');
         });
 
