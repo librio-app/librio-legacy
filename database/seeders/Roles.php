@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeds;
+namespace Database\Seeders;
 
 use App\Models\Auth\Role;
 use App\Models\Auth\Permission;
