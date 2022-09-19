@@ -1,4 +1,4 @@
-image: edbizarro/gitlab-ci-pipeline-php:7.4
+image: riconet/gitlab-ci-pipeline-php:8.0-alpine
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}

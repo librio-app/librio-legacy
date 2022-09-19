@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM php:8.0-apache
 
 RUN apt-get update && apt-get install -y zip libzip-dev libpng-dev zlib1g-dev libicu-dev g++ git \
     && docker-php-ext-configure intl \

@@ -66,7 +66,7 @@ return [
             'charset' => 'utf8',
             'prefix' => env('DB_PREFIX', 'librio_'),
             'prefix_indexes' => true,
-            'schema' => 'public',
+            'search_path' => 'public',
             'sslmode' => 'prefer',
         ],
 
