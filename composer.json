@@ -15,7 +15,6 @@
         "ext-mbstring": "*",
         "akaunting/laravel-language": "^1.0",
         "akaunting/laravel-setting": "^1.0",
-        "barryvdh/laravel-ide-helper": "^2.5",
         "cknow/laravel-money": "^7.0",
         "kyslik/column-sortable": "^6.4",
         "laracasts/flash": "^3.0",
@@ -29,6 +28,7 @@
         "tucker-eric/eloquentfilter": "^3.1"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.12",
         "filp/whoops": "^2.0",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^6.1",
