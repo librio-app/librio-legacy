@@ -56,7 +56,7 @@ class MembersController extends Controller
     {
         $subscriptions = Subscription::pluck('name', 'id');
 
-        $latestMemberCode = setting('member_code_prefix') . ((Member::collect()->last()->id ?? 1) + 1);
+        $latestMemberCode = setting('member_code_prefix') . ((Member::latest()->first()->id ?? 1) + 1);
 
         return view('administration.members.create', compact('subscriptions', 'latestMemberCode'));
     }
