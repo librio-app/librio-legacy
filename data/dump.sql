@@ -14,12 +14,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-
--- Databasestructuur van librio_db wordt geschreven
-DROP DATABASE IF EXISTS `librio_db`;
-CREATE DATABASE IF NOT EXISTS `librio_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `librio_db`;
-
 -- Structuur van  tabel librio_db.librio_authors wordt geschreven
 DROP TABLE IF EXISTS `librio_authors`;
 CREATE TABLE IF NOT EXISTS `librio_authors` (

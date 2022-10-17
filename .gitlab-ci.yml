@@ -1,4 +1,4 @@
-image: edbizarro/gitlab-ci-pipeline-php:7.4
+image: riconet/gitlab-ci-pipeline-php:8.0-alpine
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
@@ -13,10 +13,9 @@ stages:
 
 build:
    stage: Build
+   image: composer:2.3
    script:
-      - php composer.phar install --optimize-autoloader
-#      - npm install
-#      - npm run prod
+      - composer install --ignore-platform-reqs --optimize-autoloader --prefer-dist --no-progress
 
 deploy:
   only: [release/librio.michielkalle.nl]

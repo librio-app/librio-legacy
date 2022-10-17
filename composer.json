@@ -9,31 +9,31 @@
     ],
     "license": "MIT",
     "require": {
-        "php": ">=7.4.0",
+        "php": ">=8.0.0",
         "ext-intl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "akaunting/language": "^1.0",
-        "akaunting/setting": "^1.0",
-        "barryvdh/laravel-ide-helper": "^2.5",
-        "cknow/laravel-money": "^3.8",
-        "fideloper/proxy": "^4.0",
+        "akaunting/laravel-language": "^1.0",
+        "akaunting/laravel-setting": "^1.0",
+        "cknow/laravel-money": "^7.0",
         "kyslik/column-sortable": "^6.4",
         "laracasts/flash": "^3.0",
-        "laravel/framework": "6.0.*",
+        "laravel/framework": "^9.0",
         "laravel/helpers": "^1.4",
-        "laravel/tinker": "^1.0",
+        "laravel/tinker": "^2.0",
+        "laravel/ui": "4.0",
         "laravelcollective/html": "^6.0",
         "maatwebsite/excel": "^3.1",
-        "santigarcor/laratrust": "5.2.*",
-        "tucker-eric/eloquentfilter": "^2.4"
+        "santigarcor/laratrust": "^7.1",
+        "tucker-eric/eloquentfilter": "^3.1"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.12",
         "filp/whoops": "^2.0",
-        "fzaninotto/faker": "^1.4",
+        "laravel/sail": "^1.16",
         "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^3.0",
-        "phpunit/phpunit": "^7.0"
+        "nunomaduro/collision": "^6.1",
+        "phpunit/phpunit": "^9.0"
     },
     "config": {
         "optimize-autoloader": true,
@@ -47,12 +47,10 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
-        },
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ]
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
     },
     "autoload-dev": {
         "psr-4": {

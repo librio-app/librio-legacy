@@ -6,7 +6,7 @@ use App\Models\Member\Book;
 use App\Observers\StatusObserver;
 use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Validation\Rule;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,6 +27,9 @@ class AppServiceProvider extends ServiceProvider
 
         // observers
         Book::observe(StatusObserver::class);
+
+        // default use bootstrap
+        Paginator::useBootstrap();
     }
 
     /**
