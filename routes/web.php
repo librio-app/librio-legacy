@@ -86,7 +86,7 @@ Route::group(['middleware' => 'language'], function () {
 
             // member
             Route::group(['prefix' => 'member'], function () {
-                Route::get('lend', 'Member\LendController@index')->middleware('shortcut');
+                Route::get('lend', 'Member\LendController@index')->middleware('shortcut')->name('lend');
                 Route::get('lend/{member}', 'Member\LendController@overview')->name('lend.member');
                 Route::post('lend/{member}', 'Member\LendController@store')->middleware('shortcut');
                 Route::get('history/{member}', 'Member\HistoryController@index');
