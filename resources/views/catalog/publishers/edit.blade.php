@@ -27,7 +27,7 @@
 
         @permission('update-catalog-publishers')
         <div class="box-footer">
-            {{ Form::saveButtons() }}
+            {{ Form::saveButtons('catalog/publishers') }}
         </div>
         <!-- /.box-footer -->
         @endpermission

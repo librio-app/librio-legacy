@@ -25,7 +25,7 @@
 
         @permission('update-catalog-series')
         <div class="box-footer">
-            {{ Form::saveButtons() }}
+            {{ Form::saveButtons('catalog/series') }}
         </div>
         <!-- /.box-footer -->
         @endpermission

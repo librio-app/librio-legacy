@@ -34,7 +34,7 @@
 
         @permission('create-admin-users')
             <div class="box-footer">
-                {{ Form::saveButtons() }}
+                {{ Form::saveButtons('auth/users') }}
             </div>
         @endpermission
 

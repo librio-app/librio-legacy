@@ -46,7 +46,7 @@
 
         @permission('update-catalog-books')
         <div class="box-footer">
-            {{ Form::saveButtons() }}
+            {{ Form::saveButtons('catalog/books') }}
         </div>
         @endpermission
 

@@ -66,7 +66,7 @@
 
                 {{ Form::textGroup('text', trans_choice('general.notes', 1), 'pencil', []) }}
 
-                {{ Form::saveButtons() }}
+                {{ Form::saveButtons('common/notes') }}
 
             {!! Form::close() !!}
         </div>

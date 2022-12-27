@@ -23,7 +23,7 @@
         <!-- /.box-body -->
 
         <div class="box-footer">
-            {{ Form::saveButtons() }}
+            {{ Form::saveButtons('catalog/themes') }}
         </div>
 
         {!! Form::close() !!}

@@ -60,7 +60,7 @@ class FormServiceProvider extends ServiceProvider
         ]);
 
         Form::component('saveButtons', 'partials.form.save_buttons', [
-            'col' => 'col-md-12',
+            'cancel', 'col' => 'col-md-12',
         ]);
 
         Form::component('dateRange', 'partials.form.date_range', [

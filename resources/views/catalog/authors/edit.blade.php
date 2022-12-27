@@ -33,7 +33,7 @@
 
         @permission('update-catalog-categories')
         <div class="box-footer">
-            {{ Form::saveButtons() }}
+            {{ Form::saveButtons('catalog/authors/'.$author->id.'/details') }}
         </div>
         <!-- /.box-footer -->
         @endpermission

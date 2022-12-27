@@ -154,8 +154,9 @@ class BooksController extends Controller
     }
 
     /**
-     * @param Book $book
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Book $category
+     * @return mixed
+     * @throws \Exception
      */
     public function destroy(Book $book)
     {

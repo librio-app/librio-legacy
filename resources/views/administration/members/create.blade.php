@@ -69,7 +69,7 @@
         <!-- /.box-body -->
 
         <div class="box-footer">
-            {{ Form::saveButtons() }}
+            {{ Form::saveButtons('administration/members') }}
         </div>
 
         {!! Form::close() !!}
