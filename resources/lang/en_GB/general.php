@@ -142,6 +142,7 @@ return [
     'shortcut'              => 'Shortcut|Shortcuts',
     'lend_history'          => 'Lend history',
     'add_books'             => 'Add books',
+    'to_lended'             => 'Go to lended',
 
     'title' => [
         'default'           => 'Title',

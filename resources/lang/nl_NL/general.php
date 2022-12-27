@@ -142,6 +142,7 @@ return [
     'shortcut'              => 'Sneltoets|Sneltoetsen',
     'lend_history'          => 'Uitleengeschiedenis',
     'add_books'             => 'Boeken toevoegen',
+    'to_lended'             => 'Ga naar uitlenen',
 
     'title' => [
         'default'           => 'Titel',
