@@ -43,7 +43,7 @@
                 <table class="table table-striped table-hover" id="tbl-books">
                     <thead>
                     <tr>
-                        <th class="col-md-2">{{ trans('general.title.default') }}</th>
+                        <th class="col-md-2">@sortablelink('series_nr', trans('general.title.default'))</th>
                         <th class="col-md-1">@sortablelink('series_nr', trans_choice('general.series_nr', 1))</th>
                         <th class="col-md-2">{{ trans_choice('general.authors', 1) }}</th>
                         <th class="col-md-1 text-right">{{ trans('general.actions') }}</th>
