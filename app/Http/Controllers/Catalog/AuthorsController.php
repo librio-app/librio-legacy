@@ -20,7 +20,7 @@ class AuthorsController
     public function details(Author $author)
     {
         $books = $author->books();
-        return view('catalog.authors.details', compact('books'));
+        return view('catalog.authors.details', compact('author', 'books'));
     }
 
     /**
