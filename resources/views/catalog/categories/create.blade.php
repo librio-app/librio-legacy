@@ -23,7 +23,7 @@
         <!-- /.box-body -->
 
         <div class="box-footer">
-            {{ Form::saveButtons('catalog/categories') }}
+            {{ Form::saveButtons() }}
         </div>
 
         {!! Form::close() !!}

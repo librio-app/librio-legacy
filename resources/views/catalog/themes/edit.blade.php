@@ -32,7 +32,7 @@
 
         @permission('update-catalog-themes')
         <div class="box-footer">
-            {{ Form::saveButtons('catalog/themes') }}
+            {{ Form::saveButtons() }}
         </div>
         <!-- /.box-footer -->
         @endpermission

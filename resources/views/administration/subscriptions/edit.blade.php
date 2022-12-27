@@ -73,7 +73,7 @@
 
         @permission('update-administration-subscriptions')
         <div class="box-footer">
-            {{ Form::saveButtons('administration/subscriptions') }}
+            {{ Form::saveButtons() }}
         </div>
         <!-- /.box-footer -->
         @endpermission

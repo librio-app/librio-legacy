@@ -19,7 +19,7 @@
         <!-- /.box-body -->
 
         <div class="box-footer">
-            {{ Form::saveButtons('catalog/series') }}
+            {{ Form::saveButtons() }}
         </div>
 
         {!! Form::close() !!}

@@ -21,7 +21,7 @@
         <!-- /.box-body -->
 
         <div class="box-footer">
-            {{ Form::saveButtons('catalog/publishers') }}
+            {{ Form::saveButtons() }}
         </div>
 
         {!! Form::close() !!}
