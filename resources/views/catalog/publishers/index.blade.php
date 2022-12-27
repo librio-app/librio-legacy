@@ -44,7 +44,7 @@
                     @foreach($publishers as $item)
                         <tr>
                             <td>
-                                <a href="{{ url('catalog/publishers/' . $item->id . '/edit') }}">
+                                <a href="{{ route('publishers.details', ['publisher' => $item]) }}">
                                     {{ $item->name }}
                                 </a>
                             </td>

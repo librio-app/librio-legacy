@@ -62,6 +62,7 @@ Route::group(['middleware' => 'language'], function () {
                 Route::get('authors/{author}/disable', 'Catalog\AuthorsController@disable')->name('authors.disable');
 
                 Route::resource('publishers', 'Catalog\PublishersController');
+                Route::get('publishers/{publisher}/details', 'Catalog\PublishersController@details')->name('publishers.details');
                 Route::get('publishers/{publisher}/enable', 'Catalog\PublishersController@enable')->name('publishers.enable');
                 Route::get('publishers/{publisher}/disable', 'Catalog\PublishersController@disable')->name('publishers.disable');
 

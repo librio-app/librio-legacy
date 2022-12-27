@@ -41,6 +41,12 @@ class PublishersController extends Controller
         return redirect('catalog/publishers');
     }
 
+    public function details(Publisher $publisher)
+    {
+        $books = $publisher->books()->collect();
+        return view('catalog.publishers.details',compact('publisher', 'books'));
+    }
+
     /**
      * @param Publisher $publisher
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
