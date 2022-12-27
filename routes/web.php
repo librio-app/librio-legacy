@@ -57,6 +57,7 @@ Route::group(['middleware' => 'language'], function () {
                 Route::post('barcode/status', 'Catalog\BarcodesController@changeStatus');
 
                 Route::resource('authors', 'Catalog\AuthorsController');
+                Route::get('authors/{author}/details', 'Catalog\AuthorsController@details')->name('author.details');
                 Route::get('authors/{author}/enable', 'Catalog\AuthorsController@enable')->name('authors.enable');
                 Route::get('authors/{author}/disable', 'Catalog\AuthorsController@disable')->name('authors.disable');
 

@@ -17,6 +17,12 @@ class AuthorsController
         return view('catalog.authors.index', compact('authors'));
     }
 
+    public function details(Author $author)
+    {
+        $books = $author->books();
+        return view('catalog.authors.details', compact('books'));
+    }
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
