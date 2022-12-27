@@ -21,7 +21,7 @@ return [
     'login_to'              => 'Login to start your session',
     'remember_me'           => 'Remember Me',
     'forgot_password'       => 'I forgot my password',
-    'forgot_password_title' => 'Forgot password',
+    'forgot_password_title' => 'Change password',
     'reset_password'        => 'Reset Password',
     'enter_email'           => 'Enter Your Email Address',
     'current_email'         => 'Current Email',

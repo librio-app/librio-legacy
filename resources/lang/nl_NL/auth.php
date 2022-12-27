@@ -21,7 +21,7 @@ return [
     'login_to'              => 'Login om uw sessie te starten',
     'remember_me'           => 'Onthoud mijn gegevens',
     'forgot_password'       => 'Ik ben mijn wachtwoord vergeten',
-    'forgot_password_title' => 'Wachtwoord vergeten',
+    'forgot_password_title' => 'Wachtwoord wijzigen',
     'reset_password'        => 'Wachtwoord resetten',
     'enter_email'           => 'Voer uw e-mailadres in',
     'current_email'         => 'Huidig E-mailadres',
