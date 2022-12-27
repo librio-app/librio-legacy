@@ -68,7 +68,7 @@ class AuthorsController
 
         flash($message)->success();
 
-        return redirect('catalog/authors');
+        return redirect()->route('authors.details', ['author' => $author]);
     }
 
     /**
