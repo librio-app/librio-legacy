@@ -52,15 +52,15 @@
                             <tbody>
                             <tr>
                                 <th>{{ trans_choice('general.created_date', 1) }}</th>
-                                <td>{{ $book->created_at->format('d-m-Y') }}</td>
+                                <td>{{ $author->created_at->format('d-m-Y') }}</td>
                             </tr>
                             <tr>
                                 <th>{{ trans_choice('general.updated_date', 1) }}</th>
-                                <td>{{ $book->updated_at->diffForHumans() }}</td>
+                                <td>{{ $author->updated_at->diffForHumans() }}</td>
                             </tr>
                             <tr>
                                 <th>{{ trans('general.description') }}</th>
-                                <td>{{ mb_strimwidth($book->description ?? '-', 0, 400, '...') }}</td>
+                                <td>{{ mb_strimwidth($author->description ?? '-', 0, 400, '...') }}</td>
                             </tr>
                             </tbody>
                         </table>
@@ -76,10 +76,22 @@
                     </div>
                     @endpermission
                     <div class="form-group no-margin">
-                        <a href="{{ route('authors.edit', ['id' => $author->id])}}" class="btn btn-default pull-right"><span class="fa fa-pencil"></span> &nbsp;{{ trans('general.edit') }}</a>
+                        <a href="{{ route('authors.edit', ['author' => $author])}}" class="btn btn-default pull-right"><span class="fa fa-pencil"></span> &nbsp;{{ trans('general.edit') }}</a>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <h3>{{ trans_choice('general.books', 2) }}</h3>
+
+    <div class="box box-primary">
+        <div class="box-body">
+            @include('partials.books.bookstable')
+        </div>
+
+        <div class="box-footer">
+            @include('partials.default.pagination', ['items' => $books, 'type' => 'books'])
         </div>
     </div>
 @endsection
