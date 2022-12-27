@@ -19,8 +19,7 @@ class AuthorsController
 
     public function details(Author $author)
     {
-        $books = $author->books();
-        return view('catalog.authors.details', compact('author', 'books'));
+        return view('catalog.authors.details', compact('author'));
     }
 
     /**
@@ -43,7 +42,7 @@ class AuthorsController
 
         flash($message)->success();
 
-        return redirect('catalog/authors');
+        return redirect()->route('authors.details', ['author' => $author]);
     }
 
     /**
