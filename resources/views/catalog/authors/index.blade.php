@@ -45,7 +45,7 @@
                     @foreach($authors as $item)
                         <tr>
                             <td>
-                                <a href="{{ url('catalog/authors/' . $item->id . '/edit') }}">
+                                <a href="{{ url('catalog/authors/' . $item->id . '/details') }}">
                                     {{ $item->getName() }}
                                 </a>
                             </td>
