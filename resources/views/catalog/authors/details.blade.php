@@ -22,11 +22,11 @@
                         <table class="table">
                             <tbody>
                             <tr>
-                                <th style="width:50%">{{ trans('general.firstname') }}</th>
+                                <th style="width:50%">{{ trans('general.first_name') }}</th>
                                 <td>{{ $author->first_name }}</td>
                             </tr>
                             <tr>
-                                <th style="width:50%">{{ trans('general.lastname') }}</th>
+                                <th style="width:50%">{{ trans('general.last_name') }}</th>
                                 <td>{{ $author->last_name }}</td>
                             </tr>
                             <tr>
