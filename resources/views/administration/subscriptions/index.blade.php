@@ -54,7 +54,7 @@
                             <td>{{ $item->book_limit }}</td>
                             <td>{{ $item->book_lending_days }}</td>
                             <td>
-                                @money($item->subscription_price * 100, $item->currency)
+                                @money($item->subscription_price, $item->currency)
                             </td>
                             <td>
                                 @if ($item->enabled)

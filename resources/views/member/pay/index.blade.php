@@ -41,9 +41,9 @@
                         <tr>
                             <td class="barcode">{{ $item->barcode }}</td>
                             <td><a href="{{ url('catalog/books/' . $item->barcode->book->id . '/details') }}">{{ $item->barcode->book->title }}</a></td>
-                            <td>@money($item->penalty * 100, (isset($subscription) ? $subscription->currency : 'EUR'))</td>
-                            <td>@money($item->costs * 100, (isset($subscription) ? $subscription->currency : 'EUR'))</td>
-                            <td>@money(($item->costs + $item->penalty) * 100, (isset($subscription) ? $subscription->currency : 'EUR'))</td>
+                            <td>@money($item->penalty, (isset($subscription) ? $subscription->currency : 'EUR'))</td>
+                            <td>@money($item->costs, (isset($subscription) ? $subscription->currency : 'EUR'))</td>
+                            <td>@money(($item->costs + $item->penalty), (isset($subscription) ? $subscription->currency : 'EUR'))</td>
                             <td class="text-center">
                                 {!! Form::open(['url' => 'member/pay/' . $member->id, 'role' => 'form', 'method' => 'POST']) !!}
                                     <input hidden="hidden" name="member_book_id" type="text" id="member_book_id" value="{{ $item->id }}">

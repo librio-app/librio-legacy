@@ -104,7 +104,7 @@
                     <span class="info-box-icon bg-green"><i class="fa fa-money"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-number">{{ trans('general.to_pay') }}: @money($costs * 100, (isset($subscription) ? $subscription->currency : 'EUR'))</span>
+                        <span class="info-box-number">{{ trans('general.to_pay') }}: @money($costs, (isset($subscription) ? $subscription->currency : 'EUR'))</span>
                         <span class="info-box-text">
                             <a href="{{ url('member/pay/' . $member->id ) }}">{{ trans('general.pay') }}</a>
                         </span>
