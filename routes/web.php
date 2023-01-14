@@ -57,10 +57,12 @@ Route::group(['middleware' => 'language'], function () {
                 Route::post('barcode/status', 'Catalog\BarcodesController@changeStatus');
 
                 Route::resource('authors', 'Catalog\AuthorsController');
+                Route::get('authors/{author}/details', 'Catalog\AuthorsController@details')->name('authors.details');
                 Route::get('authors/{author}/enable', 'Catalog\AuthorsController@enable')->name('authors.enable');
                 Route::get('authors/{author}/disable', 'Catalog\AuthorsController@disable')->name('authors.disable');
 
                 Route::resource('publishers', 'Catalog\PublishersController');
+                Route::get('publishers/{publisher}/details', 'Catalog\PublishersController@details')->name('publishers.details');
                 Route::get('publishers/{publisher}/enable', 'Catalog\PublishersController@enable')->name('publishers.enable');
                 Route::get('publishers/{publisher}/disable', 'Catalog\PublishersController@disable')->name('publishers.disable');
 
@@ -86,7 +88,7 @@ Route::group(['middleware' => 'language'], function () {
 
             // member
             Route::group(['prefix' => 'member'], function () {
-                Route::get('lend', 'Member\LendController@index')->middleware('shortcut');
+                Route::get('lend', 'Member\LendController@index')->middleware('shortcut')->name('lend');
                 Route::get('lend/{member}', 'Member\LendController@overview')->name('lend.member');
                 Route::post('lend/{member}', 'Member\LendController@store')->middleware('shortcut');
                 Route::get('history/{member}', 'Member\HistoryController@index');

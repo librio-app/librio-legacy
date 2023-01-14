@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeBookStatus extends Migration
+class ChangeBookStatusFix extends Migration
 {
     /**
      * Run the migrations.

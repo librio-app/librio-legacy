@@ -14,7 +14,7 @@
 
             @if (!isset($link) || $link === true)
                 <span class="progress-description">
-                    <a href="{{ url('member/lend/' . $member->id ) }}">{{ trans('general.more_info') }}</a>
+                    <a href="{{ url('member/lend/' . $member->id ) }}">{{ trans('general.to_lended') }}</a>
                 </span>
             @endif
         </div>
@@ -25,7 +25,7 @@
 
             @if (!isset($link) || $link === true)
                 <span class="progress-description">
-                    <a href="{{ url('member/lend/' . $member->id ) }}">{{ trans('general.more_info') }}</a>
+                    <a href="{{ url('member/lend/' . $member->id ) }}">{{ trans('general.to_lended') }}</a>
                 </span>
             @endif
         </div>

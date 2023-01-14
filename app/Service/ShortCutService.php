@@ -46,6 +46,10 @@ class ShortCutService
                 case $this->takeIn;
                     return route($this->shortCuts[$shortcut]);
                 case $this->lend;
+                    if (isset($parameters['member_id']) && !empty($parameters['member_id'])) {
+                        return route($this->shortCuts[$shortcut], ['member' => $parameters['member_id'] ?? '']);
+                    }
+                    return route('lend');
                 case $this->pay;
                     if (isset($parameters['member_id']) && !empty($parameters['member_id'])) {
                         return route($this->shortCuts[$shortcut], ['member' => $parameters['member_id'] ?? '']);

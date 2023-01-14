@@ -17,6 +17,12 @@ class AuthorsController
         return view('catalog.authors.index', compact('authors'));
     }
 
+    public function details(Author $author)
+    {
+        $books = $author->books()->collect();
+        return view('catalog.authors.details',compact('author', 'books'));
+    }
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -37,7 +43,7 @@ class AuthorsController
 
         flash($message)->success();
 
-        return redirect('catalog/authors');
+        return redirect()->route('authors.details', ['author' => $author]);
     }
 
     /**
@@ -63,7 +69,7 @@ class AuthorsController
 
         flash($message)->success();
 
-        return redirect('catalog/authors');
+        return redirect()->route('authors.details', ['author' => $author]);
     }
 
     /**

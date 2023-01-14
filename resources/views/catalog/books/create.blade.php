@@ -18,7 +18,7 @@
 
             {{ Form::selectGroup('series_id', trans_choice('general.series', 1), 'book', $series, null, ['add' => true]) }}
 
-            {{ Form::textGroup('series_nr', trans_choice('general.series_nr', 1), 'list-ol', []) }}
+            {{ Form::numberGroup('series_nr', trans_choice('general.series_nr', 1), 'list-ol', []) }}
 
             {{ Form::textareaGroup('description', trans('general.description')) }}
 

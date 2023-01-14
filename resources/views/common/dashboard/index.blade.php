@@ -37,14 +37,16 @@
                                 <tr>
                                     <th>{{ trans('general.title.default') }}</th>
                                     <th>{{ trans_choice('general.notes', 1) }}</th>
+                                    <th>{{ trans('general.date') }}</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                             @foreach($notes as $note)
                                 <tr>
-                                    <th style="width:20%">{{ $note->title }}</th>
-                                    <td style="width:70%">{{ $note->text }}</td>
+                                    <td style="width:20%; font-weight: bold">{{ $note->title }}</th>
+                                    <td style="width:60%">{{ $note->text }}</td>
+                                    <td style="width:20%">{{ $note->getNotitieDatum() }}</td>
                                     <td style="width:10%">
                                         {!! Form::deleteLink($note, 'common/notes', '', 'title') !!}
                                     </td>
