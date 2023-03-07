@@ -17,6 +17,9 @@ Route::group(['middleware' => 'language'], function () {
         Route::get('/', 'Common\DashboardController@show')->name('dashboard');
         Route::get('/quick-search', 'Common\QuickSearchController@index')->name('quick.search');
 
+        Route::get('activate/{confirmationKey}/', 'Auth\Admin\ActivateMemberController@show')->name('member.activate');
+        Route::post('activate/{confirmationKey}/', 'Auth\Admin\ActivateMemberController@store');
+
         // logout
         Route::group(['prefix' => 'admin/auth'], function () {
             Route::get('logout', 'Auth\Admin\LoginController@destroy')->name('admin.logout');
@@ -162,9 +165,6 @@ Route::group(['middleware' => 'language'], function () {
 
             Route::get('forgot', 'Auth\Admin\ForgotPasswordController@show')->name('admin.forgot');
             Route::post('forgot', 'Auth\Admin\ForgotPasswordController@store');
-
-            Route::get('activate/{confirmationKey}/', 'Auth\Admin\ActivateMemberController@show')->name('member.activate');
-            Route::post('activate/{confirmationKey}/', 'Auth\Admin\ActivateMemberController@store');
 
             Route::get('reset/{token}', 'Auth\Admin\ResetPasswordController@show')->name('admin.reset');
             Route::post('reset', 'Auth\Admin\ResetPasswordController@store');
