@@ -6,22 +6,24 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Administration\Member as Request;
 use App\Models\Administration\Member;
 use App\Models\Administration\Subscription;
+use App\Service\EmailService;
 use App\Service\ReservationService;
 use App\Service\SubscriptionService;
+use Ramsey\Uuid\Uuid;
 
 class MembersController extends Controller
 {
-    /**
-     * @var ReservationService
-     */
-    private $reservationService;
+    private EmailService $emailService;
+    private ReservationService $reservationService;
 
     /**
-     * MembersController constructor.
+     * @param EmailService $emailService
      * @param ReservationService $reservationService
      */
-    public function __construct(ReservationService $reservationService)
+    public function __construct(EmailService $emailService, ReservationService $reservationService)
     {
+        parent::__construct();
+        $this->emailService = $emailService;
         $this->reservationService = $reservationService;
     }
 
@@ -194,6 +196,10 @@ class MembersController extends Controller
 
     public function activate(Member $member)
     {
+        $member->confirmation_key = Uuid::uuid4();
+        $member->save();
+        $this->emailService->sendMemberAccountCreated($member);
+
         $message = trans('messages.success.default', ['type' => trans('general.activation_mail_send')]);
 
         flash($message)->success();
