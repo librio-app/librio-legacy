@@ -192,6 +192,15 @@ class MembersController extends Controller
         return redirect()->route('members.index');
     }
 
+    public function activate(Member $member)
+    {
+        $message = trans('messages.success.default', ['type' => trans('general.activation_mail_send')]);
+
+        flash($message)->success();
+
+        return redirect()->route('members.details', ['member' => $member]);
+    }
+
     public function download()
     {
         return Member::download();

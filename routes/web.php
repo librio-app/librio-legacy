@@ -135,6 +135,7 @@ Route::group(['middleware' => 'language'], function () {
                 Route::get('members/{member}/details', 'Administration\MembersController@details')->name('members.details');
                 Route::get('members/{member}/enable', 'Administration\MembersController@enable')->name('members.enable');
                 Route::get('members/{member}/disable', 'Administration\MembersController@disable')->name('members.disable');
+                Route::get('members/{member}/activate', 'Administration\MembersController@activate')->name('members.activate');
 
                 Route::resource('subscriptions', 'Administration\SubscriptionsController');
                 Route::get('subscriptions/{subscription}/enable', 'Administration\SubscriptionsController@enable')->name('subscriptions.enable');

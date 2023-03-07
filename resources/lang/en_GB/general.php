@@ -194,5 +194,7 @@ return [
     'opac'                  => 'OPAC',
     'export'                => 'Export|Export',
     'subscription_warning'  => 'Subscription is expiring',
-    "subscription_expiring" => 'This subscription will expire in one month!'
+    'subscription_expiring' => 'This subscription will expire in one month!',
+    'send_activation_mail'  => 'Send activation mail',
+    'activation_mail_send'  => 'Mail is send!'
 ];
