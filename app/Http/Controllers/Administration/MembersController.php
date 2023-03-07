@@ -71,7 +71,6 @@ class MembersController extends Controller
     public function store(SubscriptionService $subscriptionService, Request $request)
     {
         $data = $request->input();
-        $data['password'] = \Hash::make($data['password']);
         $member = Member::create($data);
         $subscriptionService->sync($member, $request->get('subscription_id'));
 
