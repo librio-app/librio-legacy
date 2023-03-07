@@ -28,11 +28,11 @@ class Member extends Authenticatable
      */
     protected $fillable = [
         'code', 'salutation', 'first_name', 'insertion', 'last_name', 'account', 'email', 'password', 'birthday', 'comments', 'enabled', 'locale',
-        'address_line_1', 'address_line_2', 'zipcode', 'state', 'city',
+        'address_line_1', 'address_line_2', 'zipcode', 'state', 'city', 'confirmation_key',
     ];
 
     protected $dates = [
-        'birthday', 'created_at', 'updated_at', 'deleted_at',
+        'birthday', 'created_at', 'updated_at', 'deleted_at', 'confirmation_key_send_dt',
     ];
 
     /**
