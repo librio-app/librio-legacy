@@ -59,13 +59,6 @@
         </div>
 
         <div class="box-body">
-            <h4 class="col-md-12">{{ trans('general.account') }}</h4>
-            <p class="col-md-12">{{ trans('passwords.change') }}</p>
-
-            {{ Form::radioGroup('account', trans('general.account'), 'bookmark') }}
-        </div>
-
-        <div class="box-body">
             <h4 class="col-md-12">{{ trans('general.change') }}</h4>
             <p class="col-md-12">{{ trans('general.subscription_message') }}</p>
 

@@ -12,13 +12,13 @@
 */
 
 Route::group(['middleware' => 'language'], function () {
+    Route::get('activate/{confirmationKey}', 'Auth\ActivateMemberController@show')->name('member.activate');
+    Route::post('activate/{confirmationKey}', 'Auth\ActivateMemberController@store');
+
     // auth
     Route::group(['middleware' => 'auth:web'], function () {
         Route::get('/', 'Common\DashboardController@show')->name('dashboard');
         Route::get('/quick-search', 'Common\QuickSearchController@index')->name('quick.search');
-
-        Route::get('activate/{confirmationKey}', 'Auth\Admin\ActivateMemberController@show')->name('member.activate');
-        Route::post('activate/{confirmationKey}', 'Auth\Admin\ActivateMemberController@store');
 
         // logout
         Route::group(['prefix' => 'admin/auth'], function () {

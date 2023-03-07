@@ -195,6 +195,6 @@ return [
     'export'                => 'Export|Exporteren',
     'subscription_warning'  => 'Abonnement loopt af',
     "subscription_expiring" => 'Abonnement loopt binnen één maand af!',
-    'send_activation_mail'  => 'Stuur activatie mail',
+    'activate_account'      => 'Account activeren',
     'activation_mail_send'  => 'Mail is verzonden!'
 ];
