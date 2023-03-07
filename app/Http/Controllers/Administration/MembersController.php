@@ -75,6 +75,8 @@ class MembersController extends Controller
         $member = Member::create($data);
         $subscriptionService->sync($member, $request->get('subscription_id'));
 
+        $this->sendAccountActivationEmail($member);
+
         $message = trans('messages.success.added', ['type' => trans_choice('general.members', 1)]);
 
         flash($message)->success();
@@ -197,8 +199,10 @@ class MembersController extends Controller
     public function activate(Member $member)
     {
         $member->confirmation_key = Uuid::uuid4()->toString();
+        $member->enabled = true;
         $member->save();
-        $this->emailService->sendMemberAccountCreated($member);
+        $this->sendAccountActivationEmail($member);
+
 
         $message = trans('messages.success.default', ['type' => trans('general.activation_mail_send')]);
 
@@ -210,5 +214,13 @@ class MembersController extends Controller
     public function download()
     {
         return Member::download();
+    }
+
+    private function sendAccountActivationEmail(Member $member): void
+    {
+        if ($member->enabled && $member->password == null)
+        {
+            $this->emailService->sendMemberAccountCreated($member);
+        }
     }
 }
