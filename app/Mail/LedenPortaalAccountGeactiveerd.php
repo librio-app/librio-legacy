@@ -14,14 +14,17 @@ class LedenPortaalAccountGeactiveerd extends Mailable
     use Queueable, SerializesModels;
 
     private Member $member;
+    private string $activationUrl;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Member $member)
+    public function __construct(Member $member, string $activationUrl)
     {
         $this->member = $member;
+        $this->activationUrl = $activationUrl;
     }
 
     /**
