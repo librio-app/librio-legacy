@@ -196,7 +196,7 @@ class MembersController extends Controller
 
     public function activate(Member $member)
     {
-        $member->confirmation_key = Uuid::uuid4();
+        $member->confirmation_key = Uuid::uuid4()->toString();
         $member->save();
         $this->emailService->sendMemberAccountCreated($member);
 

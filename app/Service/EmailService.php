@@ -15,6 +15,6 @@ class EmailService
     public function sendMemberAccountCreated(Member $member): void
     {
         Mail::to([$member->email])
-            ->send(new LedenPortaalAccountGeactiveerd($member, route('member.activate', ['confirmationKey' => $member->confirmationKey])));
+            ->send(new LedenPortaalAccountGeactiveerd($member, route('member.activate', ['confirmationKey' => $member->confirmation_key])));
     }
 }
