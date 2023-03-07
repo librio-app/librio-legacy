@@ -1,11 +1,13 @@
 @component('mail::message')
     # Beste {{$member->getName()}},
 
-    Uw account voor {{config('app.name')}} is geactiveerd.
+    Uw account voor {{config('app.name')}} is geactiveerd. Om toegang te krijgen dient u alleen nog een wachtwoord aan te maken.
 
-    Klik <a href="{{ $activationUrl }}">hier</a> om uw account te activeren.
-    Werkt de link niet, kopieer dan de volgende url naar je browser:
-    {{ $activationUrl }}
+    @component('mail::button', ['url' => $$activationUrl])
+        Wachtwoord instellen
+    @endcomponent
+
+    Werkt de knop niet? Kopieer dan de volgende link naar uw browser: {{$url}}
 
 
     Met vriendelijke groet,

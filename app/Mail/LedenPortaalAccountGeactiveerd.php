@@ -47,7 +47,7 @@ class LedenPortaalAccountGeactiveerd extends Mailable
     public function content()
     {
         return new Content(
-            markdown: 'emails.memberportalcreated',
+            view: 'emails.memberportalcreated',
         );
     }
 }
