@@ -197,11 +197,8 @@ class MembersController extends Controller
 
     public function activate(Member $member)
     {
-        $member->confirmation_key = Uuid::uuid4()->toString();
         $member->enabled = true;
-        $member->save();
         $this->sendAccountActivationEmail($member);
-
 
         $message = trans('messages.success.default', ['type' => trans('general.activation_mail_send')]);
 
@@ -217,6 +214,9 @@ class MembersController extends Controller
 
     private function sendAccountActivationEmail(Member $member): void
     {
+        $member->confirmation_key = Uuid::uuid4()->toString();
+        $member->save();
+
         if ($member->enabled && $member->password == null)
         {
             $this->emailService->sendMemberAccountCreated($member);
