@@ -11,7 +11,7 @@ use Hash;
 
 class ActivateMemberController extends Controller
 {
-    public function activate(string $uuid)
+    public function activate(string $confirmationKey)
     {
         // TODO
     }

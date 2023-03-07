@@ -13,8 +13,8 @@ class LedenPortaalAccountGeactiveerd extends Mailable
 {
     use Queueable, SerializesModels;
 
-    private Member $member;
-    private string $activationUrl;
+    public Member $member;
+    public string $activationUrl;
 
     /**
      * Create a new message instance.
@@ -47,7 +47,7 @@ class LedenPortaalAccountGeactiveerd extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.memberportalcreated',
+            markdown: 'emails.memberportalcreated',
         );
     }
 }
