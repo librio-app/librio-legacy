@@ -53,5 +53,4 @@ return [
         'message_2'     => 'Indien u geen wachtwoord reset heeft aangevraagd, hoeft u geen verdere acties te ondernemen.',
         'button'        => 'Wachtwoord resetten',
     ],
-
 ];
