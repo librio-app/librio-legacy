@@ -9,6 +9,7 @@ use App\Models\Administration\Subscription;
 use App\Service\EmailService;
 use App\Service\ReservationService;
 use App\Service\SubscriptionService;
+use Carbon\Carbon;
 use Ramsey\Uuid\Uuid;
 
 class MembersController extends Controller
@@ -231,6 +232,7 @@ class MembersController extends Controller
     private function sendAccountActivationEmail(Member $member): void
     {
         $member->confirmation_key = Uuid::uuid4()->toString();
+        $member->confirmation_key_send_at = Carbon::now();
         $member->save();
         $this->emailService->sendMemberAccountCreated($member);
     }
