@@ -216,10 +216,6 @@ class MembersController extends Controller
     {
         $member->confirmation_key = Uuid::uuid4()->toString();
         $member->save();
-
-        if ($member->enabled && $member->password == null)
-        {
-            $this->emailService->sendMemberAccountCreated($member);
-        }
+        $this->emailService->sendMemberAccountCreated($member);
     }
 }

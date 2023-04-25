@@ -75,9 +75,11 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="form-group no-margin">
-                                <a href="{{ route('members.activate', ['member' => $member]) }}" class="btn btn-success pull-right" style="margin-left: 5px"><span class="fa fa-upload"></span> &nbsp;{{ trans('general.activate_account') }}</a>
-                            </div>
+                            @if(!$member->enabled)
+                                <div class="form-group no-margin">
+                                    <a href="{{ route('members.activate', ['member' => $member]) }}" class="btn btn-success pull-right" style="margin-left: 5px"><span class="fa fa-upload"></span> &nbsp;{{ trans('general.activate_account') }}</a>
+                                </div>
+                            @endif
 
                             <div class="form-group no-margin">
                                 <a href="{{ url('administration/members/' . $member->id . '/edit') }}" class="btn btn-default pull-right"><span class="fa fa-pencil"></span> &nbsp;{{ trans('general.edit') }}</a>
