@@ -15,6 +15,7 @@ return [
 
     'profile'               => 'Profiel',
     'logout'                => 'Afmelden',
+    'activate'              => 'Activeren',
     'login'                 => 'Inloggen',
     'login_admin'           => 'Inloggen medewerker',
     'login_member'          => 'Inloggen als lid',

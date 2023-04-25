@@ -15,6 +15,7 @@ return [
 
     'profile'               => 'Profile',
     'logout'                => 'Logout',
+    'activate'              => 'Activate',
     'login'                 => 'Login',
     'login_admin'           => 'Login library assistant',
     'login_member'          => 'Login as member',

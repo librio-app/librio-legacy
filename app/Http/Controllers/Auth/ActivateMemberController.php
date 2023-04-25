@@ -18,7 +18,7 @@ class ActivateMemberController extends Controller
 
     public function show(string $confirmationKey)
     {
-        return view('member.activate.show');
+        return view('member.activate.show', ['confirmationKey' => $confirmationKey]);
     }
 
     public function activate(string $confirmationKey)
