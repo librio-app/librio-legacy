@@ -213,6 +213,7 @@ class MembersController extends Controller
         }
         catch (\Exception $exception)
         {
+            dd($exception);
             return redirect()->back()->with('error', 'Something went wrong when sending email!');
         }
 

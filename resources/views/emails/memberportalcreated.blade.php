@@ -1,5 +1,5 @@
 <x-mail::message>
-# Beste {{$member->getName()}},
+# @lang('mail.greeting') {{$member->getName()}},
 
 Uw account voor {{config('app.name')}} is geactiveerd. Om toegang te krijgen dient u alleen nog een wachtwoord aan te maken.
 
@@ -7,12 +7,14 @@ Uw account voor {{config('app.name')}} is geactiveerd. Om toegang te krijgen die
     Wachtwoord instellen
 </x-mail::button>
 
-Werkt de knop niet, kopieer dan de volgende url naar de browser:
-{{ $activationUrl }}
-
-Met vriendelijke groet,<br>
+@lang('mail.regards'),<br>
 
 {{config('app.name')}}
+
+@component('mail::subcopy')
+    @lang('mail.trouble', ['actionText' => 'Wachtwoord instellen']) <span class="break-all">[{{ $activationUrl }}]({{ $activationUrl }})</span>
+@endcomponent
+
 </x-mail::message>
 
 
