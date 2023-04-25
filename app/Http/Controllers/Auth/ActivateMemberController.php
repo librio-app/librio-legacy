@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\Activate;
 use App\Interfaces\MemberArea\Services\MemberServiceInterface;
 use App\Models\Administration\Member;
 
@@ -36,11 +37,18 @@ class ActivateMemberController extends Controller
         ]);
     }
 
-    public function activate(string $confirmationKey)
+    public function activate(Activate $request, string $confirmationKey)
     {
+        $password = $request->validated('password');
+
         $member = $this->memberService->getMemberByConformationCode($confirmationKey);
-        // TODO get params, save password
-        // TODO login \Auth::login($member);
+        if (!$member instanceof Member) {
+            return redirect()->back();
+        }
+
+        $member->password = \Hash::make($password);
+        $member->save();
+        \Auth::login($member);
 
         return redirect()->route('opac');
     }

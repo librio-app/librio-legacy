@@ -158,7 +158,7 @@ Route::group(['middleware' => 'language'], function () {
     // guest web
     Route::group(['middleware' => 'guest:web'], function () {
         Route::get('activate/{confirmationKey}', 'Auth\ActivateMemberController@show')->name('member.activate');
-        Route::post('activate/{confirmationKey}', 'Auth\ActivateMemberController@store')->name('member.confirm');
+        Route::post('activate/{confirmationKey}', 'Auth\ActivateMemberController@activate')->name('member.confirm');
 
         Route::group(['prefix' => 'admin/auth'], function () {
             Route::get('login', 'Auth\Admin\LoginController@show')->name('admin.login');
