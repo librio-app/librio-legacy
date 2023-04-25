@@ -23,7 +23,7 @@ class ActivateMemberController extends Controller
 
     public function activate(string $confirmationKey)
     {
-        // TODO get params
+        // TODO get params, save password
         // TODO login \Auth::login($member);
 
         return redirect()->route('opac');
