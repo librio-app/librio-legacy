@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Administration;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Administration\Member as Request;
+use App\Interfaces\MemberArea\Services\MemberServiceInterface;
 use App\Models\Administration\Member;
 use App\Models\Administration\Subscription;
 use App\Service\EmailService;
@@ -16,16 +17,18 @@ class MembersController extends Controller
 {
     private EmailService $emailService;
     private ReservationService $reservationService;
+    private MemberServiceInterface $memberService;
 
     /**
      * @param EmailService $emailService
      * @param ReservationService $reservationService
      */
-    public function __construct(EmailService $emailService, ReservationService $reservationService)
+    public function __construct(MemberServiceInterface $memberService, EmailService $emailService, ReservationService $reservationService)
     {
         parent::__construct();
         $this->emailService = $emailService;
         $this->reservationService = $reservationService;
+        $this->memberService = $memberService;
     }
 
     /**
