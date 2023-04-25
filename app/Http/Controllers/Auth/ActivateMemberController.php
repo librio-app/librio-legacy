@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Interfaces\MemberArea\Services\MemberServiceInterface;
+use App\Models\Administration\Member;
 
 class ActivateMemberController extends Controller
 {
@@ -22,7 +23,17 @@ class ActivateMemberController extends Controller
 
     public function show(string $confirmationKey)
     {
-        return view('member.activate.show', ['confirmationKey' => $confirmationKey]);
+        $member = $this->memberService->getMemberByConformationCode($confirmationKey);
+
+        if (!$member instanceof Member) {
+            $message = trans('auth.activate_expired');
+            flash($message)->error();
+        }
+
+        return view('member.activate.show', [
+            'confirmationKey' => $confirmationKey,
+            'member' => $member
+        ]);
     }
 
     public function activate(string $confirmationKey)

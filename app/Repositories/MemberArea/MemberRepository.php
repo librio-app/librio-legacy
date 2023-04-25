@@ -5,7 +5,7 @@ namespace App\Repositories\MemberArea;
 use App\Interfaces\MemberArea\Repositories\MemberRepositoryInterface;
 use App\Models\Administration\Member;
 use App\Repositories\BaseRepository;
-use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class MemberRepository extends BaseRepository implements MemberRepositoryInterface
 {
@@ -21,13 +21,9 @@ class MemberRepository extends BaseRepository implements MemberRepositoryInterfa
 
     public function findByConfirmationCode(string $confirmationCode): ?Member
     {
-        $member = $this->model->where('confirmation_key', '=', $confirmationCode)->get();
-
-        if ($member)
-        {
-            return $member;
-        }
-
-        return null;
+        return $this->model->firstWhere([
+            ['confirmation_key', '=', $confirmationCode],
+            ['confirmation_key_send_at', '>', Carbon::now()->addWeeks(1)]
+        ]);
     }
 }

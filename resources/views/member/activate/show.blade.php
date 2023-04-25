@@ -7,6 +7,11 @@
 @endsection
 
 @section('content')
+    @if($member)
+        <p>{{ trans('general.welcome') }} {{ $member->getName()  }},</p>
+        <p>{{ trans('auth.activate_help') }}</p>
+    @endif
+
     <form role="form" method="POST" action="{{ route('member.confirm', ['confirmationKey' => $confirmationKey]) }}">
         {{ csrf_field() }}
 

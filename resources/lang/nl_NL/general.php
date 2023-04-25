@@ -7,6 +7,7 @@ return [
     'statuses'              => 'Status|Statussen',
 
     'dashboard'             => 'Dashboard',
+    'welcome'               => 'Welcome',
     'home'                  => 'Home',
     'quick_search'          => 'Snel zoeken',
     'general'               => 'Algemeen',
