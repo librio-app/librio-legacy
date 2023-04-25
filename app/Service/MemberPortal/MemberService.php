@@ -17,7 +17,7 @@ class MemberService implements MemberServiceInterface
 
     public function getMemberByConformationCode(string $confirmationCode): ?Member
     {
-        return $this->memberRepository->findByConformationCode($confirmationCode);
+        return $this->memberRepository->findByConfirmationCode($confirmationCode);
     }
 
     public function getMemberById(int $id): Member

@@ -19,7 +19,7 @@ class MemberRepository extends BaseRepository implements MemberRepositoryInterfa
         return parent::find($id);
     }
 
-    public function findByConformationCode(string $confirmationCode): ?Member
+    public function findByConfirmationCode(string $confirmationCode): ?Member
     {
         $member = $this->model->where('confirmation_key', '=', $confirmationCode)->get();
 

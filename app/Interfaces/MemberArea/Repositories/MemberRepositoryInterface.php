@@ -8,5 +8,5 @@ use App\Models\Administration\Member;
 interface MemberRepositoryInterface extends BaseRepositoryInterface
 {
     public function find(int $id): ?Member;
-    public function findByConformationCode(string $confirmationCode): ?Member;
+    public function findByConfirmationCode(string $confirmationCode): ?Member;
 }
