@@ -75,7 +75,7 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            @if(!$member->enabled)
+                            @if(!$member->account)
                                 <div class="form-group no-margin">
                                     <a href="{{ route('members.activate', ['member' => $member]) }}" class="btn btn-success pull-right" style="margin-left: 5px"><span class="fa fa-upload"></span> &nbsp;{{ trans('general.activate_account') }}</a>
                                 </div>
