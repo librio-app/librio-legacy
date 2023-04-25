@@ -22,6 +22,7 @@ class MemberRepository extends BaseRepository implements MemberRepositoryInterfa
     public function findByConfirmationCode(string $confirmationCode): ?Member
     {
         return $this->model->firstWhere([
+            ['enabled', '=', 1],
             ['confirmation_key', '=', $confirmationCode],
             ['confirmation_key_send_at', '>', Carbon::now()->addWeeks(1)]
         ]);
