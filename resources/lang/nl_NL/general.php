@@ -196,5 +196,6 @@ return [
     'subscription_warning'  => 'Abonnement loopt af',
     "subscription_expiring" => 'Abonnement loopt binnen één maand af!',
     'activate_account'      => 'Account activeren',
+    'deactivate_account'    => 'Account deactiveren',
     'activation_mail_send'  => 'Mail is verzonden!'
 ];

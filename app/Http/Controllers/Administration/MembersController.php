@@ -195,7 +195,7 @@ class MembersController extends Controller
         return redirect()->route('members.index');
     }
 
-    public function activate(Member $member)
+    public function activateAccount(Member $member)
     {
         try
         {
@@ -213,6 +213,13 @@ class MembersController extends Controller
         }
 
 
+        return redirect()->route('members.details', ['member' => $member]);
+    }
+
+    public function deactivateAccount(Member $member)
+    {
+        $member->account = false;
+        $member->save();
         return redirect()->route('members.details', ['member' => $member]);
     }
 

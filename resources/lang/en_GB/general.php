@@ -196,5 +196,6 @@ return [
     'subscription_warning'  => 'Subscription is expiring',
     'subscription_expiring' => 'This subscription will expire in one month!',
     'activate_account'      => 'Activate account',
+    'deactivate_account'    => 'Deactivate account',
     'activation_mail_send'  => 'Mail is send!'
 ];
