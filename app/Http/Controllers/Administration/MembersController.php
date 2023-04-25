@@ -197,12 +197,21 @@ class MembersController extends Controller
 
     public function activate(Member $member)
     {
-        $member->enabled = true;
-        $this->sendAccountActivationEmail($member);
+        try
+        {
+            $member->enabled = true;
+            $member->account = true;
+            $this->sendAccountActivationEmail($member);
 
-        $message = trans('messages.success.default', ['type' => trans('general.activation_mail_send')]);
+            $message = trans('messages.success.default', ['type' => trans('general.activation_mail_send')]);
 
-        flash($message)->success();
+            flash($message)->success();
+        }
+        catch (\Exception $exception)
+        {
+            return redirect()->back()->with('error', 'Something went wrong when sending email!');
+        }
+
 
         return redirect()->route('members.details', ['member' => $member]);
     }
