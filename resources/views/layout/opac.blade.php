@@ -26,6 +26,10 @@
 
         @include('partials.opac.header')
 
+        @if (Auth()->user() instanceof App\Models\User && !Auth::user()->isAdmin())
+            @include('partials.opac.sidebar')
+        @endif
+
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <div class="container">
