@@ -1,5 +1,6 @@
 <!-- Sidebar Menu -->
 <ul class="sidebar-menu" data-widget="tree">
-    <li {{ Request::is('opac')  ? "class=active" : '' }}><a href="{{ url('opac') }}"><i class="fa fa-university"></i> <span>TODO</span></a></li>
+    <li {{ Request::routeIs('opac')  ? "class=active" : '' }}><a href="{{ route('opac') }}"><i class="fa fa-university"></i> <span>{{ trans('general.search') }}</span></a></li>
+    <li {{ Request::routeIs('lended')  ? "class=active" : '' }}><a href="{{ route('lended') }}"><i class="fa fa-book"></i> <span>{{ trans('general.lended_books') }}</span></a></li>
 </ul>
 <!-- /.sidebar-menu -->

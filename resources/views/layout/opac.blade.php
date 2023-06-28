@@ -49,7 +49,7 @@
                 </section>
 
                 <!-- Main content -->
-                <section class="content">
+                <section class="content content-center">
                     @include('flash::message')
 
                     @yield('content')
