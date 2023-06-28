@@ -15,6 +15,9 @@ return [
 
     'profile'               => 'Profile',
     'logout'                => 'Logout',
+    'activate'              => 'Activate',
+    'activate_expired'      => 'Activating link has expired!',
+    'activate_help'         => 'Fill in your now password:',
     'login'                 => 'Login',
     'login_admin'           => 'Login library assistant',
     'login_member'          => 'Login as member',

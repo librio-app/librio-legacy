@@ -10,6 +10,7 @@ return [
         'imported'          => ':type geïmporteerd!',
         'enabled'           => ':type ingeschakeld!',
         'disabled'          => ':type uitgeschakeld!',
+        'default'           => ':type',
     ],
 
     'failed' => [

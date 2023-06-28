@@ -2,26 +2,22 @@
 
 namespace App\Notifications\Auth;
 
-use Illuminate\Notifications\Notification;
+use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class Reset extends Notification
+class Reset extends ResetPassword
 {
-    /**
-     * The password reset token.
-     *
-     * @var string
-     */
-    public $token;
+    private string $name;
 
     /**
      * Create a notification instance.
      *
      * @param  string  $token
      */
-    public function __construct($token)
+    public function __construct(string $token, string $name)
     {
-        $this->token = $token;
+        parent::__construct($token);
+        $this->name = $name;
     }
 
     /**
@@ -44,6 +40,7 @@ class Reset extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+            ->greeting(trans('mail.greeting') . ' ' . $this->name)
             ->line(trans('auth.notification.message_1'))
             ->action(trans('auth.notification.button'), url('auth/reset', $this->token))
             ->line(trans('auth.notification.message_2'));

@@ -7,6 +7,7 @@ return [
     'statuses'              => 'Status|Statussen',
 
     'dashboard'             => 'Dashboard',
+    'welcome'               => 'Welcome',
     'home'                  => 'Home',
     'quick_search'          => 'Snel zoeken',
     'general'               => 'Algemeen',
@@ -194,5 +195,8 @@ return [
     'opac'                  => 'OPAC',
     'export'                => 'Export|Exporteren',
     'subscription_warning'  => 'Abonnement loopt af',
-    "subscription_expiring" => 'Abonnement loopt binnen één maand af!'
+    "subscription_expiring" => 'Abonnement loopt binnen één maand af!',
+    'activate_account'      => 'Account activeren',
+    'deactivate_account'    => 'Account deactiveren',
+    'activation_mail_send'  => 'Mail is verzonden!'
 ];

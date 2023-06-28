@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/opac';
+    protected $redirectTo = '/opac/lended';
 
     public function __construct()
     {

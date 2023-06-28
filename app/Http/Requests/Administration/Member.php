@@ -50,11 +50,6 @@ class Member extends FormRequest
             'active' => 'boolean',
         ];
 
-        // only when account is active
-        if ($id === null && (bool) $this->get('account') === true) {
-            $validation['password'] = 'required|confirmed';
-        }
-
         return $validation;
     }
 }

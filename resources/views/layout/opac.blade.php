@@ -21,37 +21,46 @@
 
         @stack('css')
     </head>
-    <body class="hold-transition skin-librio layout-top-nav">
+
+    @php
+        $type = 'sidebar-mini';
+        if (Auth()->user() instanceof App\Models\User && Auth::user()->isAdmin()) {
+            $type = 'layout-top-nav';
+        }
+    @endphp
+    <body class="hold-transition skin-librio {{ $type }}">
         <div class="wrapper">
 
         @include('partials.opac.header')
 
+        @if (Auth()->user() instanceof App\Models\User && !Auth::user()->isAdmin())
+            @include('partials.opac.sidebar')
+        @endif
+
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <div class="container">
-                <!-- Content Header (Page header) -->
-                <section class="content-header content-center">
-                    <h1>
-                        @yield('header', 'Page Header')
-                        <small>@yield('description', '')</small>
+            <!-- Content Header (Page header) -->
+            <section class="content-header content-center">
+                <h1>
+                    @yield('header', 'Page Header')
+                    <small>@yield('description', '')</small>
 
-                        @yield('new_button')
-                    </h1>
+                    @yield('new_button')
+                </h1>
 
-                    <ol class="breadcrumb">
-                        <li><a href="{{ url("/opac") }}"><i class="fa fa-home"></i> {{ trans('general.home') }}</a></li>
-                        @yield('breadcrumb')
-                    </ol>
-                </section>
+                <ol class="breadcrumb">
+                    <li><a href="{{ url("/opac") }}"><i class="fa fa-home"></i> {{ trans('general.home') }}</a></li>
+                    @yield('breadcrumb')
+                </ol>
+            </section>
 
-                <!-- Main content -->
-                <section class="content">
-                    @include('flash::message')
+            <!-- Main content -->
+            <section class="content content-center">
+                @include('flash::message')
 
-                    @yield('content')
-                </section>
-                <!-- /.content -->
-            </div>
+                @yield('content')
+            </section>
+            <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
 

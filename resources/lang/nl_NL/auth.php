@@ -15,6 +15,9 @@ return [
 
     'profile'               => 'Profiel',
     'logout'                => 'Afmelden',
+    'activate'              => 'Activeren',
+    'activate_expired'      => 'Activatielink is verlopen!',
+    'activate_help'         => 'Vul hier uw nieuwe wachtwoord in:',
     'login'                 => 'Inloggen',
     'login_admin'           => 'Inloggen medewerker',
     'login_member'          => 'Inloggen als lid',
@@ -50,5 +53,4 @@ return [
         'message_2'     => 'Indien u geen wachtwoord reset heeft aangevraagd, hoeft u geen verdere acties te ondernemen.',
         'button'        => 'Wachtwoord resetten',
     ],
-
 ];

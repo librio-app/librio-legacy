@@ -18,7 +18,7 @@
         "cknow/laravel-money": "^7.0",
         "kyslik/column-sortable": "^6.4",
         "laracasts/flash": "^3.0",
-        "laravel/framework": "^9.0",
+        "laravel/framework": "^9.35",
         "laravel/helpers": "^1.4",
         "laravel/tinker": "^2.0",
         "laravel/ui": "4.0",

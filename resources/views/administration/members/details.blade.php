@@ -75,6 +75,16 @@
 
                     <div class="row">
                         <div class="col-md-12">
+                            @if(!$member->account)
+                                <div class="form-group no-margin">
+                                    <a href="{{ route('members.activateAccount', ['member' => $member]) }}" class="btn btn-success pull-right" style="margin-left: 5px"><span class="fa fa-upload"></span> &nbsp;{{ trans('general.activate_account') }}</a>
+                                </div>
+                            @else
+                                <div class="form-group no-margin">
+                                    <a href="{{ route('members.deactivateAccount', ['member' => $member]) }}" class="btn btn-danger pull-right" style="margin-left: 5px"><span class="fa fa-upload"></span> &nbsp;{{ trans('general.deactivate_account') }}</a>
+                                </div>
+                            @endif
+
                             <div class="form-group no-margin">
                                 <a href="{{ url('administration/members/' . $member->id . '/edit') }}" class="btn btn-default pull-right"><span class="fa fa-pencil"></span> &nbsp;{{ trans('general.edit') }}</a>
                             </div>

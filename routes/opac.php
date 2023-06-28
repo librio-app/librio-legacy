@@ -15,8 +15,10 @@ Route::group(['middleware' => 'language'], function () {
     // auth
     Route::group(['middleware' => 'auth:opac,web'], function () {
         Route::get('/', 'Opac\OpacController@index')->name('opac');
-        Route::get('search', 'Opac\OpacController@search');
+        Route::get('search', 'Opac\OpacController@search')->name('search');
         Route::get('quick-search', 'Opac\OpacController@quickSearch');
+
+        Route::get('lended', 'Opac\LendedController@index')->name('lended');
 
         Route::group(['prefix' => 'auth'], function () {
             Route::get('logout', 'Auth\LoginController@destroy')->name('logout');
