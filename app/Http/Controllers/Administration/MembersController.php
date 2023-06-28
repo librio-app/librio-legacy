@@ -4,25 +4,31 @@ namespace App\Http\Controllers\Administration;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Administration\Member as Request;
+use App\Interfaces\MemberArea\Services\MemberServiceInterface;
 use App\Models\Administration\Member;
 use App\Models\Administration\Subscription;
+use App\Service\EmailService;
 use App\Service\ReservationService;
 use App\Service\SubscriptionService;
+use Carbon\Carbon;
+use Ramsey\Uuid\Uuid;
 
 class MembersController extends Controller
 {
-    /**
-     * @var ReservationService
-     */
-    private $reservationService;
+    private EmailService $emailService;
+    private ReservationService $reservationService;
+    private MemberServiceInterface $memberService;
 
     /**
-     * MembersController constructor.
+     * @param EmailService $emailService
      * @param ReservationService $reservationService
      */
-    public function __construct(ReservationService $reservationService)
+    public function __construct(MemberServiceInterface $memberService, EmailService $emailService, ReservationService $reservationService)
     {
+        parent::__construct();
+        $this->emailService = $emailService;
         $this->reservationService = $reservationService;
+        $this->memberService = $memberService;
     }
 
     /**
@@ -69,9 +75,10 @@ class MembersController extends Controller
     public function store(SubscriptionService $subscriptionService, Request $request)
     {
         $data = $request->input();
-        $data['password'] = \Hash::make($data['password']);
         $member = Member::create($data);
         $subscriptionService->sync($member, $request->get('subscription_id'));
+
+        $this->sendAccountActivationEmail($member);
 
         $message = trans('messages.success.added', ['type' => trans_choice('general.members', 1)]);
 
@@ -192,8 +199,45 @@ class MembersController extends Controller
         return redirect()->route('members.index');
     }
 
+    public function activateAccount(Member $member)
+    {
+        try
+        {
+            $member->enabled = true;
+            $member->account = true;
+            $this->sendAccountActivationEmail($member);
+
+            $message = trans('messages.success.default', ['type' => trans('general.activation_mail_send')]);
+
+            flash($message)->success();
+        }
+        catch (\Exception $exception)
+        {
+            dd($exception);
+            return redirect()->back()->with('error', 'Something went wrong when sending email!');
+        }
+
+
+        return redirect()->route('members.details', ['member' => $member]);
+    }
+
+    public function deactivateAccount(Member $member)
+    {
+        $member->account = false;
+        $member->save();
+        return redirect()->route('members.details', ['member' => $member]);
+    }
+
     public function download()
     {
         return Member::download();
+    }
+
+    private function sendAccountActivationEmail(Member $member): void
+    {
+        $member->confirmation_key = Uuid::uuid4()->toString();
+        $member->confirmation_key_send_at = Carbon::now();
+        $member->save();
+        $this->emailService->sendMemberAccountCreated($member);
     }
 }

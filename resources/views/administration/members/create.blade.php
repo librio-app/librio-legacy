@@ -55,11 +55,6 @@
 
         <div class="box-body">
             <h4 class="col-md-12">{{ trans('general.account') }}</h4>
-
-            {{ Form::passwordGroup('password', trans('auth.password.current'), 'key', []) }}
-
-            {{ Form::passwordGroup('password_confirmation', trans('auth.password.current_confirm'), 'key', []) }}
-
             {{ Form::radioGroup('account', trans('general.account'), false, 'bookmark') }}
         </div>
 

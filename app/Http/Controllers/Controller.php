@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Api\CatalogController;
 use App\Http\Controllers\Common\DashboardController;
+use App\Http\Controllers\Opac\LendedController;
 use App\Http\Controllers\Opac\OpacController;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -35,7 +36,10 @@ class Controller extends BaseController
         $skip = [
             DashboardController::class, // dashboard
             CatalogController::class, // API's
-            OpacController::class, // OPAC
+
+            // OPAC
+            OpacController::class,
+            LendedController::class
         ];
         if (in_array($uses, $skip)) {
             return;
