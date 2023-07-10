@@ -46,6 +46,8 @@ class LendingCostsService
             return 0;
         }
 
+        // TODO fix subscriptions for other than per-book-daily
+
         // if not per pook daily, we skip this.
         if ($subscription->payment_period !== 'per-book-daily') {
             return 0;
