@@ -1,9 +1,9 @@
 @extends('layout.opac')
 
-@section('title', trans('general.opac') . ' ' . trans('general.search'))
-@section('header', trans('general.opac') . ' ' .  strtolower(trans('general.results')) . (($search) ? ': \'' . $search . '\'' : ''))
+@section('title', trans_choice('general.opac', 1) . ' ' . trans('general.search'))
+@section('header', trans_choice('general.opac', 1) . ' ' .  strtolower(trans('general.results')) . (($search) ? ': \'' . $search . '\'' : ''))
 @section('breadcrumb')
-    <li class="active">{{ trans('general.opac') }} {{ strtolower(trans('general.search')) }}</li>
+    <li class="active">{{ trans_choice('general.opac', 1) }} {{ strtolower(trans('general.results')) }}</li>
 @endsection
 
 @section('content')

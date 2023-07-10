@@ -192,7 +192,7 @@ return [
     'statistics'            => 'Statistics',
     'change_status'         => 'Change status',
     'salutation'            => 'Salutation',
-    'opac'                  => 'OPAC',
+    'opac'                  => 'Search|Search',
     'export'                => 'Export|Export',
     'subscription_warning'  => 'Subscription is expiring',
     'subscription_expiring' => 'This subscription will expire in one month!',

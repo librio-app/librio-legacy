@@ -192,7 +192,7 @@ return [
     'statistics'            => 'Statistieken',
     'change_status'         => 'Status wijzigen',
     'salutation'            => 'Aanhef',
-    'opac'                  => 'OPAC',
+    'opac'                  => 'Zoek|Zoeken',
     'export'                => 'Export|Exporteren',
     'subscription_warning'  => 'Abonnement loopt af',
     "subscription_expiring" => 'Abonnement loopt binnen één maand af!',

@@ -131,6 +131,6 @@
     </li>
     @endpermission
 
-    <li {{ Request::is('opac')  ? "class=active" : '' }}><a href="{{ url('opac') }}"><i class="fa fa-university"></i> <span>{{ trans('general.opac') }}</span></a></li>
+    <li {{ Request::is('opac')  ? "class=active" : '' }}><a href="{{ url('opac') }}"><i class="fa fa-university"></i> <span>{{ trans_choice('general.opac', 2) }}</span></a></li>
 </ul>
 <!-- /.sidebar-menu -->

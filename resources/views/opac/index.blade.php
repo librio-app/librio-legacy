@@ -1,9 +1,9 @@
 @extends('layout.opac')
 
-@section('title', trans('general.opac'))
-@section('header', trans('general.opac'))
+@section('title', trans_choice('general.opac', 2))
+@section('header', trans_choice('general.opac', 2))
 @section('breadcrumb')
-    <li class="active">{{ trans('general.opac') }}</li>
+    <li class="active">{{ trans_choice('general.opac', 2) }}</li>
 @endsection
 
 @section('content')
