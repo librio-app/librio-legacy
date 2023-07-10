@@ -24,7 +24,7 @@ class MemberRepository extends BaseRepository implements MemberRepositoryInterfa
         return $this->model->firstWhere([
             ['enabled', '=', 1],
             ['confirmation_key', '=', $confirmationCode],
-            ['confirmation_key_send_at', '>', Carbon::now()->addWeeks(1)]
+            ['confirmation_key_send_at', '>', Carbon::now()->addWeeks(-1)]
         ]);
     }
 }
