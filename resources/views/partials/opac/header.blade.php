@@ -2,7 +2,7 @@
 <header class="main-header">
 
     <!-- Logo -->
-    <a href="{{ url('/') }}" class="logo">
+    <a href="{{ url('/') }}" class="logo" style="position: relative; z-index: 99999;">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>LIB</b></span>
         <!-- logo for regular state and mobile devices -->
