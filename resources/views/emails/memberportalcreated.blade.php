@@ -2,6 +2,7 @@
 # @lang('mail.greeting') {{$member->getName()}},
 
 Uw account voor {{config('app.name')}} is geactiveerd. Om toegang te krijgen dient u alleen nog een wachtwoord aan te maken.
+Let op! De activatielink is 1 week geldig.
 
 <x-mail::button :url="$activationUrl">
     Wachtwoord instellen
