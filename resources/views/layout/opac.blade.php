@@ -24,8 +24,8 @@
 
     @php
         $type = 'layout-top-nav';
-        // Als je ingelogd bent als niet-admin gebruiker, gebruik altijd sidebar-mini
-        if (Auth()->user() instanceof App\Models\User && !Auth::user()->isAdmin()) {
+        // Als je ingelogd bent als gebruiker, gebruik altijd sidebar-mini
+        if (auth('opac')->check()) {
             $type = 'sidebar-mini';
         }
     @endphp
@@ -34,7 +34,7 @@
 
         @include('partials.opac.header')
 
-        @if (Auth()->user() instanceof App\Models\User && !Auth::user()->isAdmin())
+        @if (auth('opac')->check())
             @include('partials.opac.sidebar')
         @endif
 
