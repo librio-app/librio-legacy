@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="product-info">
                                     <span class="product-title">
-                                        @if(Auth::user()->isAdmin())
+                                        @if(Auth()->user() instanceof App\Models\User && Auth::user()->isAdmin())
                                             <a href="{{ url('catalog/books/' . $book->id . '/details') }}"><b>{{ $book->title }}</b></a>
                                         @else
                                             <b>{{ $book->title }}</b>
@@ -66,7 +66,7 @@
                                             <tr>
                                                 <td class="barcode" <?php echo ($first) ? 'style="border-top: 0px"' : '' ?>>{{ $barcode->barcode }}</td>
                                                 <td class="text-right" <?php echo ($first) ? 'style="border-top: 0px; width: 40px"' : 'style="width: 40px"' ?><?php $first = false; ?>>
-                                                    @include('partials.button.book_status', ['item' => $barcode, 'allowed' => Auth::user()->isAdmin()])
+                                                    @include('partials.button.book_status', ['item' => $barcode, 'allowed' => Auth()->user() instanceof App\Models\User && Auth::user()->isAdmin()])
                                                 </td>
                                             </tr>
                                         @endforeach
