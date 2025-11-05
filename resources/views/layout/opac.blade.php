@@ -23,12 +23,10 @@
     </head>
 
     @php
-        $type = 'sidebar-mini';
-        // Als je ingelogd bent als niet-admin gebruiker, gebruik altijd sidebar-mini
-        if (Auth()->user() instanceof App\Models\User && !Auth::user()->isAdmin()) {
+        $type = 'layout-top-nav';
+        // Als je ingelogd bent krijg je een sidebar
+        if (Auth()->user() instanceof App\Models\User) {
             $type = 'sidebar-mini';
-        } elseif (Request::routeIs('opac') || Request::routeIs('search') || (Auth()->user() instanceof App\Models\User && Auth::user()->isAdmin())) {
-            $type = 'layout-top-nav';
         }
     @endphp
     <body class="hold-transition skin-librio {{ $type }}">
