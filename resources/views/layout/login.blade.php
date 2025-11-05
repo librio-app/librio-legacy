@@ -57,10 +57,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <div class="login-box">
         <div class="login-box-body">
+            <p class="login-box-msg">{{ trans_choice('general.opac', 2) }}</p>
+            <p class="text-center">
+                {{ trans('auth.open_opac_text', ['opac' => trans_choice('general.opac', 2)]) }}
+            </p>
             <div class="row">
                 <div class="col-xs-12">
                     <a href="{{ route('opac') }}" class="btn btn-primary btn-block btn-flat">
-                        Open {{ trans_choice('general.opac', 2) }}
+                        {{ trans('auth.open_opac', ['opac' => trans_choice('general.opac', 2)]) }}
                     </a>
                 </div>
             </div>

@@ -11,11 +11,6 @@
     img {
         width: 70px;
     }
-
-    // Tweede login-box heeft kleinere margin (override de 7% auto)
-    .login-box + .login-box {
-        margin: 20px auto !important;
-    }
 }
 
 .barcode {
