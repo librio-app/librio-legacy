@@ -55,22 +55,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.login-box-footer -->
     </div>
 
-    <div class="login-box">
-        <div class="login-box-body">
-            <p class="login-box-msg">{{ trans_choice('general.opac', 2) }}</p>
-            <p class="text-center">
-                {{ trans('auth.open_opac_text', ['opac' => trans_choice('general.opac', 2)]) }}
-            </p>
-            <div class="row">
-                <div class="col-xs-12">
-                    <a href="{{ route('opac') }}" class="btn btn-primary btn-block btn-flat">
-                        {{ trans('auth.open_opac', ['opac' => trans_choice('general.opac', 2)]) }}
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- /.login-box-body -->
-    </div>
+    <a href="{{ route('opac') }}" class="btn btn-primary btn-block btn-flat" style="margin-top: 20px;">
+        {{ trans('auth.open_opac', ['opac' => trans_choice('general.opac', 2)]) }}
+    </a>
 
     </body>
 <!-- /.register-box -->
