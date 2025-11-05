@@ -31,8 +31,6 @@ return [
     'reset'                 => 'Reset',
     'never'                 => 'never',
     'admin'                 => 'Login as assistant',
-    'open_opac'             => 'Open :opac',
-    'open_opac_text'        => 'Open the :opac to search in the catalog without logging in.',
 
     'password' => [
         'current'           => 'Password',

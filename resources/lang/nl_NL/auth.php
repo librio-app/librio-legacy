@@ -31,8 +31,6 @@ return [
     'reset'                 => 'Resetten',
     'never'                 => 'nooit',
     'admin'                 => 'Login als medewerker',
-    'open_opac'             => 'Open :opac',
-    'open_opac_text'        => 'Open de :opac om te zoeken in de catalogus zonder in te loggen.',
 
     'password' => [
         'current'           => 'Wachtwoord',
