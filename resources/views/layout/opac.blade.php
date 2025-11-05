@@ -24,8 +24,8 @@
 
     @php
         $type = 'layout-top-nav';
-        // Als je ingelogd bent als gebruiker, gebruik altijd sidebar-mini
-        if (auth('opac')->check()) {
+        // Als je ingelogd bent (als gebruiker of admin), gebruik altijd sidebar-mini
+        if (auth('opac')->check() || auth('web')->check()) {
             $type = 'sidebar-mini';
         }
     @endphp
@@ -36,6 +36,8 @@
 
         @if (auth('opac')->check())
             @include('partials.opac.sidebar')
+        @elseif (auth('web')->check())
+            @include('partials.default.sidebar')
         @endif
 
         <!-- Content Wrapper. Contains page content -->
