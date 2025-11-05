@@ -24,7 +24,7 @@
 
     @php
         $type = 'sidebar-mini';
-        if (Auth()->user() instanceof App\Models\User && Auth::user()->isAdmin()) {
+        if (Request::routeIs('opac') || Request::routeIs('search') || (Auth()->user() instanceof App\Models\User && Auth::user()->isAdmin())) {
             $type = 'layout-top-nav';
         }
     @endphp
