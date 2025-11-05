@@ -43,12 +43,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             @include('flash::message')
 
             @yield('content')
-
-            <a href="{{ route('opac') }}" class="btn btn-primary btn-block btn-flat">
-                {{ trans('auth.open_opac', ['opac' => trans_choice('general.opac', 2)]) }}
-            </a>
         </div>
         <!-- /.login-box-body -->
+
+
+        <a href="{{ route('opac') }}" class="btn btn-primary btn-block btn-flat" style="margin-top: 20px;">
+            {{ trans('auth.open_opac', ['opac' => trans_choice('general.opac', 2)]) }}
+        </a>
 
         <?php /** ?>
         <div class="login-box-footer">
