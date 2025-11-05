@@ -46,7 +46,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <!-- /.login-box-body -->
 
-        <a href="{{ route('opac') }}" class="btn btn-primary btn-block btn-flat" style="margin-top: 20px;">
+        <a href="{{ route('opac') }}" class="btn btn-primary btn-block btn-flat">
             {{ trans('auth.open_opac', ['opac' => trans_choice('general.opac', 2)]) }}
         </a>
 
