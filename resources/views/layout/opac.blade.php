@@ -24,8 +24,8 @@
 
     @php
         $type = 'layout-top-nav';
-        // Als je ingelogd bent krijg je een sidebar
-        if (Auth()->user() instanceof App\Models\User) {
+        // Als je ingelogd bent als niet-admin gebruiker, gebruik altijd sidebar-mini
+        if (Auth()->user() instanceof App\Models\User && !Auth::user()->isAdmin()) {
             $type = 'sidebar-mini';
         }
     @endphp
