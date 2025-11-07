@@ -2,11 +2,11 @@
 <img src="/public/images/librio-small.png"/>
 </p>
 
-<h3 align="center">Librio</h3>
+# Librio Legacy
 
-<p align="center">
-  Librio is an open source library system, created for small libraries who don't want to invest in an expensive system.
-</p>
+Librio is an open source library system, created for small libraries who don't want to invest in an expensive system.
+This version is the initial idea and is deprecated.
+
 
 ## Requirements
 * PHP 7.4
