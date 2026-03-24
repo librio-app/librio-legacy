@@ -21,7 +21,7 @@
                 <tr>
                     <th class="col-md-2">{{ trans('general.title.default') }}</th>
                     <th class="col-md-1">{{ trans_choice('general.categories', 1) }}</th>
-                    <th class="col-md-1">{{ trans('general.code') }}</th>
+                    <th class="col-md-1">{{ trans_choice('general.barcodes', 1) }}</th>
                     <th class="col-md-2">{{ trans_choice('general.authors', 1) }}</th>
                     <th class="col-md-1 hidden-xs">{{ trans_choice('general.statuses', 1) }}</th>
                     <th class="col-md-1 text-center">{{ trans('general.actions') }}</th>
@@ -36,7 +36,7 @@
                             </a>
                         </td>
                         <td>{{ $item->category->name }}</td>
-                        <td>{{ $item->code }}</td>
+                        <td>{{ $item->barcodes->pluck('barcode')->implode(', ') }}</td>
                         <td>{{ $item->author->getName() }}</td>
                         <td>
                             @if ($item->enabled)
