@@ -12,6 +12,7 @@ class Barcode
     {
         switch ($status) {
             case 'new';
+            case 'ordered';
             case 'in_reservation';
                 return 'primary';
             case 'in_repair';

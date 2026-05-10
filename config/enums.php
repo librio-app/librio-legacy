@@ -41,6 +41,7 @@ return [
 
     'barcode_status' => [
         'new' => 'new',
+        'ordered' => 'ordered',
         'in_repair' => 'in_repair',
         'lost' => 'lost',
         'taken_in' => 'taken_in',
