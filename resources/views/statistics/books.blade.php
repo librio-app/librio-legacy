@@ -35,6 +35,12 @@
                 {!! Form::button('<span class="fa fa-filter"></span> &nbsp;' . trans('general.filter'), ['type' => 'submit', 'class' => 'btn btn-sm btn-default btn-filter']) !!}
             </div>
         </div>
+
+        <div class="col-md-2 pull-right text-right">
+            <div class="form-group">
+                {!! Form::button('<span class="fa fa-download"></span> &nbsp;' . trans('general.download'), ['id' => 'download-barcodes-statistics', 'type' => 'button', 'class' => 'btn btn-sm btn-danger']) !!}
+            </div>
+        </div>
         {!! Form::close() !!}
     </div>
 
@@ -78,6 +84,10 @@
             hooks: new ChartisanHooks()
                 .beginAtZero()
                 .colors(['#6191cf'])
-        })
+        });
+
+        $('#download-barcodes-statistics').on('click', function() {
+            window.open('<?php echo route('statistics.books.download') ?>', '_blank');
+        });
     </script>
 @endpush
