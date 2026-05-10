@@ -11,6 +11,7 @@ return [
     'status'                   => 'Status',
 
     'new'                      => 'Nieuw',
+    'ordered'                  => 'Besteld',
     'in_repair'                => 'In reparatie',
     'lost'                     => 'Kwijt',
     'taken_in'                 => 'Ingenomen',

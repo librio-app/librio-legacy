@@ -11,6 +11,7 @@ return [
     'status'                   => 'Status',
 
     'new'                      => 'New',
+    'ordered'                  => 'Ordered',
     'in_repair'                => 'In repair',
     'lost'                     => 'Lost',
     'taken_in'                 => 'Taken in',
