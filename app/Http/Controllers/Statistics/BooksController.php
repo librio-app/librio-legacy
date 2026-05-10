@@ -3,8 +3,10 @@
 
 namespace App\Http\Controllers\Statistics;
 
+use App\Exports\BarcodeLendingExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Chart\Lended as Request;
+use Maatwebsite\Excel\Excel;
 
 class BooksController extends Controller
 {
@@ -35,5 +37,10 @@ class BooksController extends Controller
         }
 
         return view('statistics.books', compact('year', 'years', 'month', 'months'));
+    }
+
+    public function download()
+    {
+        return (new BarcodeLendingExport())->download('barcode_lending_statistics.csv', Excel::CSV);
     }
 }

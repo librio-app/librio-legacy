@@ -78,6 +78,6 @@
             hooks: new ChartisanHooks()
                 .beginAtZero()
                 .colors(['#6191cf'])
-        })
+        });
     </script>
 @endpush

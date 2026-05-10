@@ -35,7 +35,15 @@
                 {!! Form::select('limit', $limits, request('limit', 25), ['class' => 'form-control input-filter input-sm', 'onchange' => 'this.form.submit()']) !!}
 
                 @permission('read-administration-export')
-                    {!! Form::button('<span class="fa fa-download"></span>', ['id' => 'download-books', 'type' => 'button', 'class' => 'btn btn-sm btn-danger btn-filter button-submit']) !!}
+                    <div class="btn-group btn-filter">
+                        <button type="button" class="btn btn-sm btn-danger dropdown-toggle button-submit" data-toggle="dropdown" aria-expanded="false">
+                            <span class="fa fa-download"></span> <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#" id="download-books">{{ trans_choice('general.books', 2) }}</a></li>
+                            <li><a href="#" id="download-barcode-lending">{{ trans('general.barcode_lending_export') }} (CSV)</a></li>
+                        </ul>
+                    </div>
                 @endpermission
             </div>
             {!! Form::close() !!}
@@ -64,8 +72,14 @@
                 placeholder: "{{ trans('general.form.select.field', ['field' => trans_choice('general.categories', 1)]) }}"
             });
 
-            $('#download-books').click(function() {
+            $('#download-books').click(function(e) {
+                e.preventDefault();
                 window.open('<?php echo route('books.download', request()->query()) ?>','_blank');
+            });
+
+            $('#download-barcode-lending').click(function(e) {
+                e.preventDefault();
+                window.open('<?php echo route('statistics.books.download') ?>','_blank');
             });
 
             // on first focus (bubbles up to document), open the menu

@@ -144,6 +144,7 @@ return [
     'lend_history'          => 'Uitleengeschiedenis',
     'add_books'             => 'Boeken toevoegen',
     'to_lended'             => 'Ga naar uitlenen',
+    'barcode_lending_export'=> 'Barcode uitleenoverzicht',
 
     'title' => [
         'default'           => 'Titel',
