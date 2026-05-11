@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Catalog;
 
+use App\Exports\BarcodeLendingExport;
 use App\Models\Catalog\Author;
 use App\Models\Catalog\Barcode;
 use App\Models\Catalog\Book;
@@ -13,6 +14,8 @@ use App\Models\Catalog\Series;
 use App\Models\Catalog\Theme;
 use App\Models\Catalog\Type;
 use App\Service\BarcodeService;
+use Illuminate\Http\Request as HttpRequest;
+use Maatwebsite\Excel\Excel;
 
 class BooksController extends Controller
 {
@@ -165,8 +168,12 @@ class BooksController extends Controller
         return redirect()->route('books.index');
     }
 
-    public function download()
+    public function download(HttpRequest $request)
     {
+        if ($request->query('export') === 'barcode_lending') {
+            return (new BarcodeLendingExport())->download('barcode_lending_statistics.csv', Excel::CSV);
+        }
+
         return Book::download();
     }
 }

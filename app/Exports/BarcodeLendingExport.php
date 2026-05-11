@@ -12,19 +12,23 @@ class BarcodeLendingExport implements FromQuery, WithHeadings
 
     public function query()
     {
+        $p = \DB::getTablePrefix();
+        $memberBooks = "{$p}member_books";
+        $bookBarcodes = "{$p}book_barcodes";
+
+        // Correlated subquery instead of JOIN + GROUP BY: Laravel Excel chunks with
+        // forPage(), which breaks grouped aggregates and can yield invalid SQL (e.g. member_books.id in SELECT).
         return \DB::table('book_barcodes')
             ->select([
                 'books.title',
                 'book_barcodes.barcode',
                 'categories.name as category',
             ])
-            ->selectRaw('COUNT(member_books.id) as lend_count')
+            ->selectRaw("(SELECT COUNT(*) FROM {$memberBooks} WHERE {$memberBooks}.book_barcode_id = {$bookBarcodes}.id) as lend_count")
             ->join('books', 'books.id', '=', 'book_barcodes.book_id')
             ->join('categories', 'categories.id', '=', 'books.category_id')
-            ->leftJoin('member_books', 'member_books.book_barcode_id', '=', 'book_barcodes.id')
             ->whereNull('books.deleted_at')
             ->whereNull('book_barcodes.deleted_at')
-            ->groupBy('book_barcodes.id', 'books.title', 'book_barcodes.barcode', 'categories.name')
             ->orderByDesc('lend_count')
             ->orderBy('books.title')
             ->orderBy('book_barcodes.barcode');

@@ -148,7 +148,6 @@ Route::group(['middleware' => 'language'], function () {
         Route::group(['middleware' => ['role:admin|manager|user', 'permission:read-statistics-panel']], function () {
             // members
             Route::group(['prefix' => 'statistics'], function () {
-                Route::get('books/download', 'Statistics\BooksController@download')->name('statistics.books.download');
                 Route::get('books', 'Statistics\BooksController@books');
                 Route::get('year', 'Api\ChartController@year');
                 Route::get('month', 'Api\ChartController@month');
