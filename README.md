@@ -42,7 +42,9 @@ Loaded via `resources/js/bootstrap.js` and **Laravel Mix** (`webpack.mix.js`):
 ### Front-end build
 
 - **Laravel Mix** 2.x and **webpack** 3 (`npm run development` / `npm run production`)
-- **Sass** sources under `resources/sass/` (Laravel Mix historically used `node-sass`; use a **Node** version compatible with your install, or replace with Dart `sass` if you hit native binding errors)
+- **`package.json` scripts** set `NODE_OPTIONS=--openssl-legacy-provider` so webpack 3 runs on **Node 17+** (OpenSSL 3 no longer supports the hashing webpack 3 uses by default).
+- **Sass:** the **`sass`** devDependency plus an **`overrides`** rule replace **`node-sass`** (from Laravel Mix) with **Dart Sass**, because native `node-sass` bindings do not support current Node releases. Use **npm 8.3+** (or another client that applies `overrides`). Run **`npm install`** after pulling dependency changes, then build.
+- **Switching Node versions:** use **[nvm](https://github.com/nvm-sh/nvm)** (or **fnm**, **asdf**, etc.) to install and try different releases. In the repo root, **`nvm install`** / **`nvm use`** picks up **`.nvmrc`** (suggested **Node 20**). Examples: `nvm install 18 && nvm use 18`, `nvm install 22 && nvm use 22`, then `npm install` and `npm run production` again.
 
 ## Requirements
 
@@ -50,4 +52,4 @@ Loaded via `resources/js/bootstrap.js` and **Laravel Mix** (`webpack.mix.js`):
 - **Composer** for PHP dependencies
 - **Database** (e.g. MySQL, PostgreSQL, SQLite)
 - **Web server** (e.g. Apache, Nginx, IIS)
-- **Node.js** for front-end assets: prefer **18.x or 20.x LTS** with a recent **npm**. Older **webpack 3** builds may need `NODE_OPTIONS=--openssl-legacy-provider` on newer Node versions. **Node 14 or 16** can be easier for this toolchain without that flag.
+- **Node.js** for front-end assets: **18.x / 20.x / 22.x** with **npm 8.3+** matches the current `package.json` (scripts + overrides). The **`.nvmrc`** file suggests **20** for local builds. Without those `package.json` conveniences, use older Node or set `NODE_OPTIONS` / Dart `sass` yourself as for a stock Laravel Mix 2 project.
