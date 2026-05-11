@@ -36,7 +36,7 @@
 
                 @permission('read-administration-export')
                     <div class="btn-group btn-filter">
-                        <button type="button" class="btn btn-sm btn-danger dropdown-toggle button-submit" data-toggle="dropdown" aria-expanded="false">
+                        <button type="button" class="btn btn-sm btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                             <span class="fa fa-download"></span> <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right">
