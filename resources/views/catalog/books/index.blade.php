@@ -35,14 +35,14 @@
                 {!! Form::select('limit', $limits, request('limit', 25), ['class' => 'form-control input-filter input-sm', 'onchange' => 'this.form.submit()']) !!}
 
                 @permission('read-administration-export')
-                    <div class="btn-group btn-filter">
-                        <button type="button" class="btn btn-sm btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                            <span class="fa fa-download"></span> <span class="caret"></span>
+                    <div class="btn-group btn-filter" role="group">
+                        <button type="button" class="btn btn-sm btn-danger dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                            <span class="fa fa-download"></span>
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="#" id="download-books">{{ trans_choice('general.books', 2) }}</a></li>
-                            <li><a href="#" id="download-barcode-lending">{{ trans('general.barcode_lending_export') }} (CSV)</a></li>
-                        </ul>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="#" class="dropdown-item" id="download-books">{{ trans_choice('general.books', 2) }}</a>
+                            <a href="#" class="dropdown-item" id="download-barcode-lending">{{ trans('general.barcode_lending_export') }} (CSV)</a>
+                        </div>
                     </div>
                 @endpermission
             </div>
