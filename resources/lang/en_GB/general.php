@@ -144,7 +144,7 @@ return [
     'lend_history'          => 'Lend history',
     'add_books'             => 'Add books',
     'to_lended'             => 'Go to lended',
-    'barcode_lending_export'=> 'Barcode lending overview',
+    'barcode_lending_export'=> 'Total lendings',
 
     'title' => [
         'default'           => 'Title',
