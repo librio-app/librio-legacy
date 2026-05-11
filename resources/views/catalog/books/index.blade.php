@@ -79,7 +79,7 @@
 
             $('#download-barcode-lending').click(function(e) {
                 e.preventDefault();
-                window.open('<?php echo e(route('books.download', array_merge(request()->query(), ['export' => 'barcode_lending']))) ?>','_blank');
+                window.open('<?php echo route('books.download', ['export' => 'barcode_lending']) ?>','_blank');
             });
 
             // on first focus (bubbles up to document), open the menu
