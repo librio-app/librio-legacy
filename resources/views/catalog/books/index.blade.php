@@ -1,5 +1,9 @@
 @extends('layout.default')
 
+@push('css')
+<style>.btn-group.show{display:inline-block!important;vertical-align:middle}</style>
+@endpush
+
 @section('title', trans_choice('general.books', 2))
 @section('header', trans_choice('general.books', 2))
 @section('breadcrumb')
@@ -36,13 +40,13 @@
 
                 @permission('read-administration-export')
                     <div class="btn-group btn-filter">
-                        <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" data-toggle-position="left" aria-expanded="false">
+                        <button type="button" class="btn btn-sm btn-danger dropdown-toggle" data-toggle="dropdown" data-toggle-position="left" aria-expanded="false">
                             <span class="fa fa-download"></span>
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li><a href="#" id="download-books">{{ trans_choice('general.books', 2) }}</a></li>
-                            <li><a href="#" id="download-barcode-lending">{{ trans('general.barcode_lending_export') }} (XLSX)</a></li>
+                            <li><a href="#" id="download-barcode-lending">{{ trans('general.barcode_lending_export') }}</a></li>
                         </ul>
                     </div>
                 @endpermission
