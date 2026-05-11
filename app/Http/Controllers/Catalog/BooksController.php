@@ -171,7 +171,7 @@ class BooksController extends Controller
     public function download(HttpRequest $request)
     {
         if ($request->query('export') === 'barcode_lending') {
-            return (new BarcodeLendingExport())->download('barcode_lending_statistics.csv', Excel::CSV);
+            return (new BarcodeLendingExport())->download('barcode_lending_statistics.xlsx', Excel::XLSX);
         }
 
         return Book::download();
